@@ -2,27 +2,29 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
+app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
-
-app.get('/', (pedido, resposta) => {
-    resposta.sendFile(path.join(__dirname, 'index.html'));
-});
-
-app.use('/dashboard', require('./Router/dashboard'));
 app.use('/api/utilizador', require('./Router/utilizador'));
 
-app.get('/login', (pedido, resposta) => {
-    resposta.sendFile(path.join(__dirname, '/View/login.html'));
-});
-
-app.get('/cadastrar', (pedido, resposta) => {
-    resposta.sendFile(path.join(__dirname, '/View/cadastrar.html'));
+app.get('/', (pedido, resposta) => {
+    resposta.render('index',{title:'Home Page'});
 });
 
 app.get('/dashboard', (pedido, resposta) => {
-    resposta.sendFile(path.join(__dirname, '/View/dashboard.html'));
+    resposta.render('dashboard');
 });
+
+app.use('/dashboard', require('./Router/dashboard'));
+
+app.get('/login', (pedido, resposta) => {
+    resposta.render('login');
+});
+
+app.get('/cadastrar', (pedido, resposta) => {
+    resposta.render('cadastrar');
+});
+
 const corsOptions = {
     origin: '*',
     optionsSuccessStatus: 200 
