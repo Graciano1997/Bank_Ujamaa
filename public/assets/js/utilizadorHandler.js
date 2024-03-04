@@ -4,12 +4,10 @@ const senhaField = document.querySelector("#password");
 const loginForm = document.querySelector("#loginForm");
 const cadastrarBtn = document.querySelector("#cadastrarBtn");
 const passwordConfirm = document.querySelector("#passwordConfirm");
+const infoParaph = document.querySelector("#info");
 
-loginForm.addEventListener("submit", (element) => {
+loginForm.addEventListener("submit", async (element) => {
     element.preventDefault();
-});
-
-cadastrarBtn.addEventListener("click", async () => {
     try {
         const response = await fetch('http://localhost:3000/api/utilizador/', {
             method: 'POST',
@@ -22,10 +20,20 @@ cadastrarBtn.addEventListener("click", async () => {
             )
         });
         const data = await response.json();
-        console.log(data); // Log the response data to the console
+        if (data.sucesso) {
+            infoParaph.textContent=data.message;
+            loginForm.reset();
+        }
+        if (data.error) {
+            infoParaph.textContent=data.message;
+        }
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
     }
+});
+
+cadastrarBtn.addEventListener("click", async () => {
+
 });
 
 passwordConfirm.addEventListener("input", (el) => {

@@ -5,10 +5,6 @@ class utilizadoresControlador {
     async index() {
         try {
             const utilizadores = await Utilizador.findAll();
-            console.log(utilizadores);
-            if (utilizadores.length === 0) {
-                return { sucesso: true, message: "Lista de Utilizadores esta vázia" };
-            }
             return { sucesso: true, data: utilizadores };
         } catch (error) {
             console.error(error.message);
@@ -48,7 +44,7 @@ class utilizadoresControlador {
              await Utilizador.create(params);
             return { sucesso:true,message: "Utilizador criado com sucesso"};
         } catch (error) {
-            return { error:true,message: [error.message, error.errors[0].message] };
+            return { error:true,message: error.errors[0].message };
         }
     }
 
@@ -56,7 +52,7 @@ class utilizadoresControlador {
         try {
             const Utilizador = await Utilizador.findByPk(id);
             if (!Utilizador) {
-                return { successo: true, message: "Utilizador não encontrado" };
+                return { sucesso: true, message: "Utilizador não encontrado" };
             }
             await Utilizador.destroy();
             return { successo: true, message: "Utilizador excluído com sucesso" };

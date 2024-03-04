@@ -50,7 +50,7 @@ router.post('/', async (req, res) => {
       if (!result.sucesso) {
         return res.status(400).json({error:true,message: result.message});
       }
-    res.status(200).json({sucesso:true, result });
+    res.status(200).json({sucesso:true, message:result.message});
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error:true, message: "Erro no Servidor" });
