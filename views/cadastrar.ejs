@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/index.css">
-    <title>BCU Cadastrar</title>
-</head>
-<body>
-    <section class="loginContainer">
+<%- include('partials/head',{title:'BCU Cadastrar'})%>
+<%- include('partials/header')%>
+<section class="loginContainer">
         <form class="formContainer" id="loginForm">
             <div>
                 <label for="nome">Nome</label>
@@ -27,14 +20,10 @@
             </div>
             <button type="submit" id="cadastrarBtn">Cadastrar</button>
         </form>
-        <p>Já tem Conta ? <a href="/login">Login</a></p>
+        <p class="linkConta">Já tem Conta ? <br/> <a href="/login">Login</a></p>
+        <div class="infoContainer">
+            <p id="info"></p>
+        </div>   
     </section>
-    <div class="infoContainer">
-        <p id="info"></p>
-    </div>   
-    <footer class="footerContainer">
-        <h2>Banco Comercial Ujamaa</h2>
-    </footer>
-    <script src="/assets/js/utilizadorHandler.js"></script>
-</body>
-</html>
+    <%- include('partials/footer')%>
+    <%- include('partials/pageEnd')%>

@@ -5,19 +5,31 @@ const path = require('path');
 // const utilizador = new utilizadoresControlador();
 
 router.get('/creditos', async (req, resposta) => {
-  resposta.sendFile(path.join(__dirname, '../View/dashboard/credito.html')); 
+  resposta.render('dashboard/credito'); 
 });
-router.get('/clientes', async (req, resposta) => {
-  resposta.sendFile(path.join(__dirname, '../View/dashboard/cliente.html')); 
+// router.get('/clientes', async (req, resposta) => {
+//   resposta.render('dashboard/cliente');  
+// });
+router.get('/definicoes', (pedido, resposta) => {
+  resposta.render('dashboard/definicoes');
+});
+ router.get('/depositos', async (req, resposta) => {
+   resposta.render('dashboard/deposito');  
+ });
+router.get('/transferencias', async (req, resposta) => {
+  resposta.render('dashboard/transferencia');  
+});
+router.get('/pagamentos', async (req, resposta) => {
+  resposta.render('dashboard/pagamento');  
 });
 router.get('/financas', async (req, resposta) => {
-  resposta.sendFile(path.join(__dirname, '../View/dashboard/financas.html')); 
+  resposta.render('dashboard/financas');  
 });
-router.get('/empresas', async (req, resposta) => {
-  resposta.sendFile(path.join(__dirname, '../View/dashboard/empresas.html')); 
+router.get('/levantamentos', async (req, resposta) => {
+  resposta.render('dashboard/levantamento');  
 });
 router.get('/funcionarios', async (req, resposta) => {
-  resposta.sendFile(path.join(__dirname, '../View/dashboard/funcionarios.html')); 
+  resposta.render('dashboard/funcionarios'); 
 });
 
 // router.get('/:id', async (req, res) => {

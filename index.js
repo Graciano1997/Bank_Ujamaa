@@ -8,7 +8,7 @@ app.use(express.static('public'));
 app.use('/api/utilizador', require('./Router/utilizador'));
 
 app.get('/', (pedido, resposta) => {
-    resposta.render('index',{title:'Home Page'});
+    resposta.render('index',{title:'BCU Página Inicial'});
 });
 
 app.get('/dashboard', (pedido, resposta) => {
@@ -25,12 +25,13 @@ app.get('/cadastrar', (pedido, resposta) => {
     resposta.render('cadastrar');
 });
 
+
 const corsOptions = {
     origin: '*',
     optionsSuccessStatus: 200 
   };
  app.use(cors(corsOptions));
-app.listen(3000, "localhost", () => {
+app.listen(3000, "0.0.0.0", () => {
     console.log(`Servidor do Banco BCU rodando na porta 3000 ...`);
     console.log(`ctrl+c pra Encerrar`);
 });

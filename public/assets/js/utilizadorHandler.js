@@ -66,3 +66,7 @@ if (passwordConfirm !== null) {
         }
     });
 }
+
+document.querySelector(".chocolateContainer").addEventListener("click",()=>{
+    document.querySelector(".sideBarControler").classList.toggle('hide');
+})

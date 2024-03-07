@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/index.css">
-    <title><%=title%></title>
-</head>
-<body>
-    <header>
-        BCU
-    </header>
 
+    <%- include('partials/head',{title:'BCU Home'})%>
+    <%- include('partials/header')%>
     <section>
         <h1>Em Construção</h1>
         <br>
         <a href="/login">Login</a>
     </section>
-    <footer>
-
-    </footer>
-</body>
-</html>
+    <%- include('partials/footer')%>
+    <%- include('partials/pageEnd')%>
