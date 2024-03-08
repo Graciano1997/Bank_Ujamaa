@@ -10,6 +10,9 @@ router.get('/creditos', async (req, resposta) => {
 // router.get('/clientes', async (req, resposta) => {
 //   resposta.render('dashboard/cliente');  
 // });
+router.get('/cartoes', (pedido, resposta) => {
+  resposta.render('dashboard/cartoes');
+});
 router.get('/definicoes', (pedido, resposta) => {
   resposta.render('dashboard/definicoes');
 });

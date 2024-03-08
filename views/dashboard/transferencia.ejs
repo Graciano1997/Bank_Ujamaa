@@ -2,7 +2,16 @@
 <%- include('../partials/dashboardHeader')%>
 <section class="dashboardContainer">
         <div class="mainArea">
-            <h1>Transferências</h1>
+            <h1>Transferência</h1>
+            <div class="transferenciaContainer">
+                <form class="borderCurveElements">
+                    <input name="iban" placeholder="AO06 XXXX XXXX XXXX XXXX XXXX X" id="ibanField" maxlength="30"/>
+                    <input type="text" name="morada" placeholder="Nome do Destinatário" id="moradaField"/>
+                    <input type="number" name="valor" placeholder="Valor" id="valorField"/>
+                    <input type="text" name="morada" placeholder="Modara do Destinatário" id="moradaField"/>
+                    <button>Transferir</button>
+                </form>
+            </div>
         </div>
             <%- include('../partials/sideBar')%>
     </section>
