@@ -1,29 +1,35 @@
-const fs=require('fs');
+const fs = require('fs');
+const ejs = require('ejs');
 const nodemailer = require('nodemailer');
+const { dirname } = require('path');
+// let enviado=false;
 
-let transporter = nodemailer.createTransport({
+const emailSender = async (user) => {
+  let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'bancocomercialujamaa@gmail.com',
-        pass: 'rcak pprh sfig udis'
+      user: 'bancocomercialujamaa@gmail.com',
+      pass: 'rcak pprh sfig udis'
     }
-});
+  });
+  const templateToRender = fs.readFileSync(__dirname + '/views/email/templateConfirmation.ejs', 'utf8');
+  let template = ejs.render(templateToRender, { cliente: { nome: user.nome, code: user.code } });
 
-let htmlTemplate = fs.readFileSync('../public/assets/email/welcome.html', 'utf8'); // For HTML file
+  let mailOptions = {
+    from: 'bancocomercialujamaa@gmail.com',
+    to: user.email,
+    subject: 'BCU Activação de Conta',
+    html: template
+  };
 
-// Setup email data
-let mailOptions = {
-    from: 'bancocomercialujamaa@gmail.com', // sender address
-    to: 'gracianomanuelhenrique@gmail.com', // list of receivers
-    subject: 'Hello  ✔', // Subject line
-    text: 'Hello world? UJAMAA', // plain text body
-    html: htmlTemplate // html body
-};
-
-// Send email
-transporter.sendMail(mailOptions, (error, info) => {
+  await transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-        return console.log(error);
+      return console.log(error);
     }
-    console.log('Message sent: %s',info.messageId);
-});
+    // enviado=true;
+    console.log('SMS: %s', info.messageId);
+  });
+  // return enviado;
+}
+
+module.exports = { emailSender };

@@ -5,6 +5,7 @@ const {
 } = require('sequelize');
 
 const bcrypt = require('bcrypt');
+const { emailSender } = require("../module/mailer.js");
 
 // module.exports = (sequelize, DataTypes) => {
   class Utilizador extends Model {
@@ -32,6 +33,13 @@ const bcrypt = require('bcrypt');
    Utilizador.beforeCreate(async (user, options) => {
    const hashedPassword = await bcrypt.hash(user.senha, 10);
    user.senha = hashedPassword;
+ });
+
+   Utilizador.afterCreate(async (user, options) => {
+    // const email={ subject:'BCU Activação de Conta'};
+    const userData={nome:user.nome,email:user.email,code:1234};
+    console.log("After create the User", userData);
+    emailSender(userData);
  });
 
 module.exports = { Utilizador }

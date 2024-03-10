@@ -2,9 +2,16 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
-app.set('view engine', 'ejs');
 
+app.set('view engine', 'ejs');
 app.use(express.static('public'));
+const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 
+  };
+
+app.use(cors(corsOptions));
+
 app.use('/api/utilizador', require('./Router/utilizador'));
 
 app.get('/', (pedido, resposta) => {
@@ -25,12 +32,6 @@ app.get('/cadastrar', (pedido, resposta) => {
     resposta.render('cadastrar');
 });
 
-
-const corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200 
-  };
- app.use(cors(corsOptions));
 app.listen(3000, "0.0.0.0", () => {
     console.log(`Servidor do Banco BCU rodando na porta 3000 ...`);
     console.log(`ctrl+c pra Encerrar`);

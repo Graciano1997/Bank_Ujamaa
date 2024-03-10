@@ -31,8 +31,8 @@ router.get('/financas', async (req, resposta) => {
 router.get('/levantamentos', async (req, resposta) => {
   resposta.render('dashboard/levantamento');  
 });
-router.get('/funcionarios', async (req, resposta) => {
-  resposta.render('dashboard/funcionarios'); 
+router.get('/contactos', async (req, resposta) => {
+  resposta.render('dashboard/contactos'); 
 });
 
 // router.get('/:id', async (req, res) => {

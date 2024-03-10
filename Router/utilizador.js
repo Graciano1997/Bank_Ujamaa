@@ -4,7 +4,6 @@ const { utilizadoresControlador } = require('../Controller/utilizadoresControlad
 const { Utilizador } = require('../models/utilizador.js');
 const utilizador = new utilizadoresControlador();
 const bcrypt = require('bcrypt');
-
 router.use(express.json());
 
 router.get('/', async (req, res) => {
@@ -47,7 +46,7 @@ router.delete('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const result = await utilizador.create(JSON.parse(req.body));
+    const result = await utilizador.create(req.body);
     if (!result.sucesso) {
       return res.status(400).json({ error: true, message: result.message });
     }
