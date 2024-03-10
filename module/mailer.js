@@ -1,21 +1,23 @@
+const fs=require('fs');
 const nodemailer = require('nodemailer');
 
-// Create a transporter object using SMTP transport
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'gracianomanuelhenrique@gmail.com', // your email
-        pass: 'yaraprata2000AMOR' // your password
+        user: 'bancocomercialujamaa@gmail.com',
+        pass: 'rcak pprh sfig udis'
     }
 });
 
+let htmlTemplate = fs.readFileSync('../public/assets/email/welcome.html', 'utf8'); // For HTML file
+
 // Setup email data
 let mailOptions = {
-    from: 'gracianomanuelhenrique@gmail.com', // sender address
+    from: 'bancocomercialujamaa@gmail.com', // sender address
     to: 'gracianomanuelhenrique@gmail.com', // list of receivers
-    subject: 'Hello ✔', // Subject line
-    text: 'Hello world?', // plain text body
-    html: '<b>Hello world?</b>' // html body
+    subject: 'Hello  ✔', // Subject line
+    text: 'Hello world? UJAMAA', // plain text body
+    html: htmlTemplate // html body
 };
 
 // Send email
