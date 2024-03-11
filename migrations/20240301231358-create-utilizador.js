@@ -23,7 +23,14 @@ module.exports = {
       },
       administrador: {
         type: Sequelize.BOOLEAN,
-        default:false
+        defaultValue:false
+      },
+      chave: {
+        type: Sequelize.STRING
+      },
+      ativo: {
+        type: Sequelize.BOOLEAN,
+        defaultValue:false
       },
       createdAt: {
         allowNull: false,

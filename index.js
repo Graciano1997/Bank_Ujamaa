@@ -5,12 +5,11 @@ const cors = require('cors');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-const corsOptions = {
-    origin: '*',
-    optionsSuccessStatus: 200 
-  };
-
-app.use(cors(corsOptions));
+// const corsOptions = {
+//     origin: '*',
+//     optionsSuccessStatus: 200 
+//   };
+app.use(cors());
 
 app.use('/api/utilizador', require('./Router/utilizador'));
 
@@ -30,6 +29,10 @@ app.get('/login', (pedido, resposta) => {
 
 app.get('/cadastrar', (pedido, resposta) => {
     resposta.render('cadastrar');
+});
+
+app.get('/validacao', (pedido, resposta) => {
+    resposta.render('validarConta');
 });
 
 app.listen(3000, "0.0.0.0", () => {

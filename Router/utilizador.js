@@ -61,9 +61,25 @@ router.post('/authenticate', async (req, res) => {
   const { email, senha } = req.body;
   const user = await Utilizador.findOne({ where: { email } });
   if (user && (await bcrypt.compare(senha, user.senha))) {
-    res.status(200).json({ sucesso: true, redirectUrl: '/dashboard' });
+    res.status(200).json({ sucesso: true, redirectUrl: user.ativo?'/dashboard':'/validacao' });
   } else {
-    return res.status(401).json({ error: 'Email ou Senha inválida' });
+    return res.status(401).json({ error:true, message: 'Email ou Senha inválida' });
+  }
+});
+
+router.post('/confirmacaoconta', async (req, res) => {
+  const { email,code } = req.body;
+  const user = await Utilizador.findOne({ where: { email }});
+  if (user && (await user.chave==code)) {
+    console.log("tudo bem");
+  }
+
+  if (user && (await user.chave==code)) {
+    user.ativo=true;
+    await user.save();
+    res.status(200).json({ sucesso: true, redirectUrl: '/dashboard'});
+  } else {
+    res.status(200).json({ sucesso: true, redirectUrl: '/validacao'});
   }
 });
 

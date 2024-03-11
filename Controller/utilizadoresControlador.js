@@ -42,7 +42,7 @@ class utilizadoresControlador {
     async create(params) {
         try {
              await Utilizador.create(params);
-            return { sucesso:true,message: "Utilizador criado com sucesso"};
+            return { sucesso:true,message: "Utilizador criado, verifica o seu Email para activar a sua conta"};
         } catch (error) {
             return { error:true,message: error.errors[0].message };
         }
