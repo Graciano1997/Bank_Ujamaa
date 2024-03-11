@@ -16,8 +16,27 @@ const chaveField = document.querySelector("#chaveField");
 const validationForm = document.querySelector("#validationForm");
 
 if(validationForm!=null){
-  validationForm.addEventListener("submit",(el)=>{
+  validationForm.addEventListener("submit",async (el)=>{
     el.preventDefault();
+    try {
+      const response = await fetch('http://localhost:3000/api/utilizador/confirmacaoconta', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: localStorage.getItem("currentSessionEmail"),
+          code: chaveField.value
+        }
+        ) 
+      });
+      const data= await response.json();
+      console.log("From validation",data);
+      if (data.redirectUrl) {
+        window.location.href = data.redirectUrl;
+      }
+     
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
   });
 }
 
@@ -77,30 +96,11 @@ if (loginBtn !== null) {
     }
   });
 }
-
-if (validaCountBtn !== null) {
-  validaCountBtn.addEventListener("click", async () => {
-    try {
-      const response = await fetch('http://localhost:3000/api/utilizador/confirmacaoconta', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: localStorage.getItem("currentSessionEmail"),
-          code: chaveField.value
-        }
-        ) 
-      });
-      const data= await response.json();
-      console.log("From validation",data);
-      if (data.redirectUrl) {
-        window.location.href = data.redirectUrl;
-      }
-     
-    } catch (error) {
-      console.error('There was a problem with the fetch operation:', error);
-    }
-  });
-}
+// if (validaCountBtn !== null) {
+//   validaCountBtn.addEventListener("click", async () => {
+   
+//   });
+// }
 
 if (passwordConfirm !== null) {
   passwordConfirm.addEventListener("input", (el) => {

@@ -1,13 +1,21 @@
 <%- include('partials/head',{title:'BCU Validação'})%>
+<%- include('partials/dashboardHeader')%>
 <section class="dashboardContainer">
         <div class="mainArea">
+            <h1>Activação de Conta</h1>
             <div class="transferenciaContainer">
                 <form class="borderCurveElements" id="validationForm">
-                    <input type="number" name="codigo" maxlength="4" minlength="4" placeholder="chave de Confirmação" id="chaveField"/>
-                    <button id="validaCountBtn">Validar</button>
+                    <input type="number" name="codigo" placeholder="chave de Confirmação" id="chaveField" required />
+                    <button type="submit" id="validaCountBtn">Validar</button>
                 </form>
+                <div class="infoContainer">
+                    <p class="infoValidation">
+                        Insira a Chave de Confirmação que enviamos ao seu email
+                    </p>
+                </div>   
             </div>
         </div>
+        <%- include('partials/inactivesideBar')%>
     </section>
     <%- include('partials/footer')%>
     <%- include('partials/pageEnd')%>

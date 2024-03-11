@@ -282,3 +282,8 @@ height:5%
     .hide{
         display:none;
     }
+
+    .infoValidation{
+        color:white;
+        font-weight: 700;
+    }
