@@ -9,9 +9,11 @@ const { emailSender } = require("../module/mailer.js");
 
 // module.exports = (sequelize, DataTypes) => {
 class Utilizador extends Model {
+  static usuarioCorrente=null;
   static associate(models) {
     // define association here
   }
+
 }
 
 Utilizador.init({

@@ -1,11 +1,3 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    background-color: blueviolet;
-}
 
 .headerContainer{
     height: 3rem;
@@ -286,4 +278,25 @@ height:5%
     .infoValidation{
         color:white;
         font-weight: 700;
+    }
+    @media screen and (min-width:768px) {
+        .sideBarControler{
+            width:30%;
+        }
+        .transferenciaContainer,
+        .cartaoContainer{
+            align-self: center;
+            width:35%;
+            border-radius: 16px;
+        }
+        #chip{
+            padding-left: 8px;
+            padding-top: 8px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .logoutModal button{
+            width:30%;
+        }
     }

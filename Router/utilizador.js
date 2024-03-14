@@ -61,6 +61,7 @@ router.post('/authenticate', async (req, res) => {
   const { email, senha } = req.body;
   const user = await Utilizador.findOne({ where: { email } });
   if (user && (await bcrypt.compare(senha, user.senha))) {
+    Utilizador.usuarioCorrente=user;
     res.status(200).json({ sucesso: true, redirectUrl: user.ativo?'/dashboard':'/validacao' });
   } else {
     return res.status(401).json({ error:true, message: 'Email ou Senha inválida' });

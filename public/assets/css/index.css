@@ -1,17 +1,12 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body{
     display: flex;
     flex-direction:column;
-}
-
-.headerContainer h1{
-    color:white;
-    margin:1rem;
-}
-
-.footerContainer p{
-    color:white;
-    text-align:center;
-    font-size:12px;
+    background-color: blueviolet;
 }
 
 .loginContainer{
@@ -26,6 +21,26 @@ body{
     border-top-left-radius: 16px;
     border-bottom-right-radius: 16px;
 }
+
+@media screen and (min-width:768px) {
+    .loginContainer{
+        align-self: center;
+        width: 40%;
+    }
+}
+
+.headerContainer h1{
+    color:white;
+    margin:1rem;
+}
+
+.footerContainer p{
+    color:white;
+    text-align:center;
+    font-size:12px;
+}
+
+
 
 .linkConta{
     padding-top:1rem;
@@ -43,7 +58,7 @@ body{
 }
 
 .formContainer{
-    margin-top:1.5rem;
+margin-top:1.5rem;
 padding: 0.5rem;
 display: flex;
 justify-content: center;
@@ -120,4 +135,9 @@ align-items: center;
 
 .hide{
     display:none;
+}
+
+.autorizacao{
+    margin-top: 1rem;
+    text-align: center;
 }

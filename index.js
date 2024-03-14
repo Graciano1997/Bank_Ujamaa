@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
+const { Utilizador } = require('./models/utilizador');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -18,7 +19,11 @@ app.get('/', (pedido, resposta) => {
 });
 
 app.get('/dashboard', (pedido, resposta) => {
-    resposta.render('dashboard');
+    // if (Utilizador.usuarioCorrente != null) {
+        resposta.render('dashboard');
+    //   }else{
+        // resposta.render('warm');
+    //   }
 });
 
 app.use('/dashboard', require('./Router/dashboard'));

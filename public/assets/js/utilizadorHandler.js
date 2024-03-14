@@ -153,6 +153,6 @@ if (logoutBtnNO !== null) {
 if (logoutBtnYES !== null) {
   logoutBtnYES.addEventListener('click', (el) => {
     localStorage.removeItem("currentSessionEmail");
-    window.location.href = '/';
+    window.location.href = '/dashboard/logout';
   });
 }
