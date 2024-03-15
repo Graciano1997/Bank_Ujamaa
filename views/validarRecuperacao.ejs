@@ -1,0 +1,20 @@
+<%- include('partials/head',{title:'BCU Recuperação de Conta'})%>
+<%- include('partials/activacaoHeader')%>
+<section class="dashboardContainer">
+        <div class="mainArea">
+            <h1>Recuperação de Credenciais</h1>
+            <div class="transferenciaContainer">
+                <form class="borderCurveElements" id="validationCodeForm">
+                    <input type="number" name="codigo" placeholder="código de Confirmação" id="codeInput" required />
+                    <button type="submit" id="validaCodeBtn">Validar</button>
+                </form>
+                <div class="infoContainer">
+                    <p class="info"></p>
+                    <br>
+                </div> 
+            </div>
+        </div>
+        <%- include('partials/inactivesideBar')%>
+    </section>
+    <%- include('partials/footer')%>
+    <%- include('partials/pageEnd')%>

@@ -21,6 +21,7 @@ Utilizador.init({
   email: DataTypes.STRING,
   senha: DataTypes.STRING,
   chave:DataTypes.STRING,
+  codeRecuperacao:DataTypes.INTEGER,
   administrador: DataTypes.BOOLEAN,
   ativo: DataTypes.BOOLEAN
 }, {
@@ -37,11 +38,13 @@ Utilizador.afterCreate(async (user, options) => {
   const userData = {
     nome: user.nome,
     email:user.email,
-    code: Math.floor(1000 + Math.random() * 9000)
+    code: Math.floor(1000 + Math.random() * 9000),
+    assunto:'Activação de Conta'
   };
   user.chave=userData.code;
+  const template='/../views/email/templateConfirmation.ejs';
   await user.save();
-  emailSender(userData);
+  emailSender(userData,template);
 });
 
 module.exports = { Utilizador }

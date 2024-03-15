@@ -4,6 +4,8 @@ const { utilizadoresControlador } = require('../Controller/utilizadoresControlad
 const { Utilizador } = require('../models/utilizador.js');
 const utilizador = new utilizadoresControlador();
 const bcrypt = require('bcrypt');
+const { emailSender } = require('../module/mailer.js');
+
 router.use(express.json());
 
 router.get('/', async (req, res) => {
@@ -67,6 +69,37 @@ router.post('/authenticate', async (req, res) => {
     return res.status(401).json({ error:true, message: 'Email ou Senha inválida' });
   }
 });
+router.post('/recovervalidation', async (req, res) => {
+  const { email,code } = req.body;
+  const user = await Utilizador.findOne({ where: { email } });
+  if (user && code==user.codeRecuperacao) {
+    console.log("iguais");
+  // if (user && (await bcrypt.compare(senha, user.senha))) {
+    res.status(200).json({ sucesso: true, redirectUrl: '/novascredenciais' });
+  } else {
+    return res.status(401).json({ error:true, message: 'Sem Autorização' });
+  }
+});
+
+router.post('/recover', async (req, res) => {
+  const { email } = req.body;
+  const user = await Utilizador.findOne({ where: { email } });
+  if (user) {
+    const template='/../views/email/templateRecuperacao.ejs';
+    const userData = {
+      nome: user.nome,
+      email:user.email,
+      code: Math.floor(1000 + Math.random() * 9000),
+      assunto:'Recuperação de Conta'
+    };
+    user.codeRecuperacao=userData.code;
+    await user.save();    
+    emailSender(userData,template);
+    res.status(200).json({ sucesso: true, message:'Código de Recuperação Enviado com Sucesso',redirectUrl: '/validarrecuperacao'});
+  } else {
+    return res.status(401).json({ error:true, message: 'Utilizador não Existe' });
+  }
+});
 
 router.post('/confirmacaoconta', async (req, res) => {
   const { email,code } = req.body;
@@ -74,7 +107,6 @@ router.post('/confirmacaoconta', async (req, res) => {
   if (user && (await user.chave==code)) {
     console.log("tudo bem");
   }
-
   if (user && (await user.chave==code)) {
     user.ativo=true;
     await user.save();

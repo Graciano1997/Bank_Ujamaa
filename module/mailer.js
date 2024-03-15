@@ -2,7 +2,7 @@ const fs = require('fs');
 const ejs = require('ejs');
 const nodemailer = require('nodemailer');
 
-const emailSender = async (user) => {
+const emailSender = async (user,templateToSend) => {
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -11,12 +11,12 @@ const emailSender = async (user) => {
     }
   });
 
-  const templateToRender = fs.readFileSync(__dirname + '/../views/email/templateConfirmation.ejs', 'utf8');
+  const templateToRender = fs.readFileSync(__dirname + templateToSend , 'utf8');
   let template = ejs.render(templateToRender, { cliente:{nome: user.nome, code: user.code}});
   let mailOptions = {
     from: 'bancocomercialujamaa@gmail.com',
     to: user.email,
-    subject: 'BCU Activação de Conta',
+    subject: user.assunto,
     html: template
   };
 

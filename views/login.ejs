@@ -5,11 +5,11 @@
         <form class="formContainer" id="loginForm">
             <div>
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="email" name="email" id="email" placeholder="Email" required>
             </div>
             <div>
                 <label for="password">Senha</label>
-                <input type="password" name="senha" id="password" placeholder="Senha">
+                <input type="password" name="senha" id="password" placeholder="Senha" required>
             </div>
             <button type="button" id="loginBtn">Entrar</button>
         </form>
@@ -17,6 +17,8 @@
         <div class="infoContainer">
             <p class="info"></p>
         </div>   
+        <a href="/recuperacao" id="recuperarCredencias">Recuperar suas Credenciais</a>
     </section>
+
     <%- include('partials/footer')%>
 <%- include('partials/pageEnd')%>

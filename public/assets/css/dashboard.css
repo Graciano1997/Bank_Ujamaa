@@ -8,7 +8,8 @@
     display: flex;
     flex-direction: column;
     height:100vh;
-    background: linear-gradient(45deg, white 50%, #6A5ACD 50%);
+    /* background: linear-gradient(45deg, white 50%, #6A5ACD 50%); */
+    background: linear-gradient(45deg, white 50%, #047a29dc 50%);
     /* grid-template-columns: 12fr 87fr;
     height: 100vh; */
 }
@@ -109,7 +110,7 @@
 
 .transferenciaContainer{
     /* margin-top: 5%; */
-    margin: 10% 5% 1rem 5%;
+    margin: 6% 5% 1rem 5%;
     padding: 0.5rem;
     height: 50%;
     /* border-radius: 8px; */
@@ -299,4 +300,41 @@ height:5%
         .logoutModal button{
             width:30%;
         }
+    }
+
+    .moneyOptions option{
+        padding: 0.5px;
+        gap: 0.5rem;
+        margin: 0.5rem;
+        cursor: pointer;
+    }
+
+    .levantamentos{
+        margin: 0.5rem;
+        /* background-color: rgb(133, 113, 113); */
+        padding: 0.5rem;
+        overflow-y: scroll;
+    }
+    
+    .levantamentoItem{
+        border-top-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background: rgb(85, 77, 78);
+        color: #6A5ACD;
+        margin: 0.5rem;
+        padding: 0.rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .levantamentoAction{
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+    }
+
+    .levantamentoAction button{
+        padding: 0.5rem;
+        border-radius: 8px;
     }

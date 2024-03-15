@@ -32,6 +32,10 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue:false
       },
+      codeRecuperacao: {
+        type: Sequelize.INTEGER,
+        defaultValue:null
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -41,14 +45,6 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-      // // Hash the password before inserting it into the database
-      // const hashedPassword = await bcrypt.hash('password', 10);
-      // await queryInterface.bulkInsert('Utilizadors', [{
-      //   email: 'test@example.com',
-      //   senha: hashedPassword,
-      //   createdAt: new Date(),
-      //   updatedAt: new Date()
-      // }]);
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Utilizadors');

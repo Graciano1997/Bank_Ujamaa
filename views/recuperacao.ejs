@@ -1,0 +1,18 @@
+
+<%- include('partials/head',{title:'BCU Login'})%>
+<%- include('partials/header')%>
+<section class="loginContainer">
+        <form class="formContainer" id="recuperacaoForm">
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Escreva o Seu Email">
+            </div>
+            <button type="button" id="recuperarBtn">Recuperar</button>
+        </form>
+        <div class="infoContainer">
+            <p class="info"></p>
+        </div>   
+    </section>
+
+    <%- include('partials/footer')%>
+<%- include('partials/pageEnd')%>

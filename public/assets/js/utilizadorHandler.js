@@ -2,6 +2,7 @@ const nomeField = document.querySelector("#nome");
 const emailField = document.querySelector("#email");
 const senhaField = document.querySelector("#password");
 const loginForm = document.querySelector("#loginForm");
+const recuperarForm = document.querySelector("#recuperarForm");
 const cadastrarBtn = document.querySelector("#cadastrarBtn");
 const loginBtn = document.querySelector("#loginBtn");
 const passwordConfirm = document.querySelector("#passwordConfirm");
@@ -12,11 +13,15 @@ const logoutBtnNO = document.querySelector("#btnSairNO");
 const logoutBtnYES = document.querySelector("#btnSairYES");
 const chocolateMenu = document.querySelector(".chocolateContainer");
 const validaCountBtn = document.querySelector("#validaCountBtn");
+const validaCodeBtn = document.querySelector("#validaCodeBtn");
+const recuperarBtn = document.querySelector("#recuperarBtn");
 const chaveField = document.querySelector("#chaveField");
 const validationForm = document.querySelector("#validationForm");
+const validationCodeForm = document.querySelector("#validationCodeForm");
+const codeInput = document.querySelector("#codeInput");
 
-if(validationForm!=null){
-  validationForm.addEventListener("submit",async (el)=>{
+if (validationForm != null) {
+  validationForm.addEventListener("submit", async (el) => {
     el.preventDefault();
     try {
       const response = await fetch('http://localhost:3000/api/utilizador/confirmacaoconta', {
@@ -26,18 +31,24 @@ if(validationForm!=null){
           email: localStorage.getItem("currentSessionEmail"),
           code: chaveField.value
         }
-        ) 
+        )
       });
-      const data= await response.json();
-      console.log("From validation",data);
+      const data = await response.json();
+      console.log("From validation", data);
       if (data.redirectUrl) {
         window.location.href = data.redirectUrl;
       }
-     
+
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
   });
+}
+
+if (validationCodeForm != null) {
+  validationCodeForm.addEventListener("submit", async (el) => {
+    el.preventDefault();
+    });
 }
 
 if (loginForm != null) {
@@ -87,18 +98,74 @@ if (loginBtn !== null) {
         localStorage.setItem("currentSessionEmail", emailField.value);
         window.location.href = data.redirectUrl;
       }
-       if (data.error) {
+      if (data.error) {
         infoParaph.classList.add('infoError');
-         infoParaph.textContent = data.message;
-       }
+        infoParaph.textContent = data.message;
+      }
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
     }
   });
 }
+if (recuperarBtn !== null) {
+  recuperarBtn.addEventListener("click", async () => {
+    try {
+      const response = await fetch('http://localhost:3000/api/utilizador/recover', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: emailField.value,
+        }
+        )
+      });
+      const data = await response.json();
+      infoParaph.textContent = data.message;
+      if (data.error) {
+        infoParaph.classList.add('infoError');
+      } else {
+        infoParaph.classList.remove('infoError');
+        emailField.value = '';
+      }
+      if (data.redirectUrl) {
+        localStorage.setItem("currentSessionEmail", emailField.value);
+        window.location.href = data.redirectUrl;
+      }
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  });
+}
+if (validaCodeBtn !== null) {
+  validaCodeBtn.addEventListener("click", async () => {
+    try {
+      const response = await fetch('http://localhost:3000/api/utilizador/recovervalidation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email:localStorage.getItem("currentSessionEmail"),
+          code:codeInput.value!==null?codeInput.value:''
+        })
+      });
+
+      const data = await response.json();
+      infoParaph.textContent = data.message;
+      if (data.error) {
+        infoParaph.classList.add('infoError');
+      } else {
+        infoParaph.classList.remove('infoError');
+      }
+      if (data.redirectUrl) {
+        window.location.href = data.redirectUrl;
+      }
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  });
+}
+
 // if (validaCountBtn !== null) {
 //   validaCountBtn.addEventListener("click", async () => {
-   
+
 //   });
 // }
 

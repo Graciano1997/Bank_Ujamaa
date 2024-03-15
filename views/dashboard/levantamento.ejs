@@ -5,7 +5,8 @@
         <h1>Levantamento sem Cartão</h1>
         <div class="transferenciaContainer">
             <form class="borderCurveElements">
-                <select>
+                <select class="moneyOptions">
+                    <option value="">KZ 500,00</option>
                     <option value="">KZ 1.000,00</option>
                     <option value="">KZ 2.000,00</option>
                     <option value="">KZ 3.000,00</option>
@@ -41,7 +42,17 @@
                 <button>Solicitar</button>
             </form>
         </div>
+        <div class="levantamentos">
+            <h1>MEUS LEVANTAMENTOS</h1>
+            <%- include('levantamentoItem')%>
+            <%- include('levantamentoItem')%>
+            <%- include('levantamentoItem')%>
+            <%- include('levantamentoItem')%>
+            <%- include('levantamentoItem')%>
+            <%- include('levantamentoItem')%>
+        </div>
     </div>
+
             <%- include('../partials/sideBar')%>
     </section>
     <%- include('../partials/footer')%>

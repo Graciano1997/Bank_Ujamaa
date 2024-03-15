@@ -35,6 +35,16 @@ app.get('/login', (pedido, resposta) => {
 app.get('/cadastrar', (pedido, resposta) => {
     resposta.render('cadastrar');
 });
+app.get('/recuperacao', (pedido, resposta) => {
+    resposta.render('recuperacao');
+});
+app.get('/validarrecuperacao', (pedido, resposta) => {
+    resposta.render('validarRecuperacao');
+});
+
+app.get('/novascredenciais', (pedido, resposta) => {
+    resposta.render('novascredenciais');
+});
 
 app.get('/validacao', (pedido, resposta) => {
     resposta.render('validarConta');
