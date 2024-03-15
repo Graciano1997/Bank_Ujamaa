@@ -25,7 +25,9 @@ body{
 @media screen and (min-width:768px) {
     .loginContainer{
         align-self: center;
+        justify-self: flex-start;
         width: 40%;
+        margin: 5% 1rem 20% 1rem;
     }
 }
 
@@ -140,4 +142,17 @@ align-items: center;
 .autorizacao{
     margin-top: 1rem;
     text-align: center;
+}
+
+.linkButtonSair{
+    cursor: pointer;
+}
+::-webkit-scrollbar{
+     background-color: blueviolet;
+     
+    }
+    
+    ::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 8px;
 }

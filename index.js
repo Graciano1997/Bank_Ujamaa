@@ -40,6 +40,10 @@ app.get('/validacao', (pedido, resposta) => {
     resposta.render('validarConta');
 });
 
+app.use(function(req, res, next) {
+    res.status(404).send('<h1>error/404.html</h1>');
+});
+
 app.listen(3000, "0.0.0.0", () => {
     console.log(`Servidor do Banco BCU rodando na porta 3000 ...`);
     console.log(`ctrl+c pra Encerrar`);
