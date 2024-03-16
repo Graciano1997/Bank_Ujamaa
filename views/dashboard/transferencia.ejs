@@ -2,7 +2,6 @@
 <%- include('../partials/dashboardHeader')%>
 <section class="dashboardContainer">
         <div class="mainArea">
-            <h1>Transferência</h1>
             <div class="transferenciaContainer">
                 <form class="borderCurveElements">
                     <input name="iban" placeholder="AO06 XXXX XXXX XXXX XXXX XXXX X" id="ibanField" maxlength="30"/>
@@ -11,6 +10,19 @@
                     <input type="text" name="morada" placeholder="Modara do Destinatário" id="moradaField"/>
                     <button>Transferir</button>
                 </form>
+            </div>
+            <div class="levantamentos">
+                <h1>TRANSFERÊNCIAS</h1>
+                <%- include('levantamentoItem')%>
+                <%- include('levantamentoItem')%>
+                <%- include('levantamentoItem')%>
+                <%- include('levantamentoItem')%>
+                <%- include('levantamentoItem')%>
+                <%- include('levantamentoItem')%>
+                <%- include('levantamentoItem')%>
+                <%- include('levantamentoItem')%>
+                <%- include('levantamentoItem')%>
+                <%- include('levantamentoItem')%>
             </div>
         </div>
             <%- include('../partials/sideBar')%>
