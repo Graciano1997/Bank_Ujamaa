@@ -33,7 +33,7 @@ module.exports = {
         defaultValue:false
       },
       codeRecuperacao: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         defaultValue:null
       },
       createdAt: {

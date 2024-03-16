@@ -1,25 +1,18 @@
 <%- include('partials/head',{title:'BCU Cadastrar'})%>
 <%- include('partials/header')%>
 <section class="loginContainer">
-        <form class="formContainer" id="loginForm">
+        <form class="formContainer" id="recoverForm">
             <div>
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" placeholder="Nome" required>
+                <label for="password">Nova Senha</label>
+                <input type="password" name="senha" id="password" minlength="4" maxlength="16" placeholder="Nova Senha" required>
             </div>
             <div>
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Email" required>
+                <label for="password">Confirmar nova Senha</label>
+                <input type="password" name="senha-confirma" id="passwordConfirm" minlength="4" maxlength="16" placeholder="Repetir NovaSenha" required>
             </div>
-            <div>
-                <label for="password">Senha</label>
-                <input type="password" name="senha" id="password" placeholder="Senha" required>
-            </div>
-            <div>
-                <label for="password">Confirm Senha</label>
-                <input type="password" name="senha-confirma" id="passwordConfirm" placeholder="Repetir Senha" required>
-            </div>
-            <button type="submit" id="cadastrarBtn">Salvar</button>
+            <button type="submit" id="salvarNovasCredenciasBtn">Salvar</button>
         </form>
+        <p class="linkConta">Já tem Conta ? <br/> <a href="/login">Login</a></p>
         <div class="infoContainer">
             <p class="info"></p>
         </div>   

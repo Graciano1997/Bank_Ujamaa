@@ -2,7 +2,7 @@ const nomeField = document.querySelector("#nome");
 const emailField = document.querySelector("#email");
 const senhaField = document.querySelector("#password");
 const loginForm = document.querySelector("#loginForm");
-const recuperarForm = document.querySelector("#recuperarForm");
+const recoverForm = document.querySelector("#recoverForm");
 const cadastrarBtn = document.querySelector("#cadastrarBtn");
 const loginBtn = document.querySelector("#loginBtn");
 const passwordConfirm = document.querySelector("#passwordConfirm");
@@ -14,6 +14,7 @@ const logoutBtnYES = document.querySelector("#btnSairYES");
 const chocolateMenu = document.querySelector(".chocolateContainer");
 const validaCountBtn = document.querySelector("#validaCountBtn");
 const validaCodeBtn = document.querySelector("#validaCodeBtn");
+const salvarNovasCredenciasBtn = document.querySelector("#salvarNovasCredenciasBtn");
 const recuperarBtn = document.querySelector("#recuperarBtn");
 const chaveField = document.querySelector("#chaveField");
 const validationForm = document.querySelector("#validationForm");
@@ -80,6 +81,59 @@ if (loginForm != null) {
     }
   });
 }
+if (recoverForm != null) {
+  recoverForm.addEventListener("submit", async (element) => {
+    element.preventDefault();
+    try {
+      const response = await fetch(`http://localhost:3000/api/utilizador/${localStorage.getItem("_")}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          senha: senhaField.value
+        }
+        )
+      });
+      const data = await response.json();
+      if (data.sucesso) {
+        infoParaph.textContent = data.message;
+        recoverForm.reset();
+      }
+      if (data.error) {
+        infoParaph.classList.add('infoError');
+        infoParaph.textContent = data.message;
+      }
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  });
+}
+
+// if (salvarNovasCredenciasBtn != null) {
+//   salvarNovasCredenciasBtn.addEventListener("submit", async (element) => {
+//     element.preventDefault();
+//     try {
+//       const response = await fetch(`http://localhost:3000/api/utilizador/${localStorage.getItem("_")}`, {
+//         method: 'PUT',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({
+//           senha: senhaField.value
+//         }
+//         )
+//       });
+//       const data = await response.json();
+//       if (data.sucesso) {
+//         infoParaph.textContent = data.message;
+//         // loginForm.reset();
+//       }
+//       if (data.error) {
+//         infoParaph.classList.add('infoError');
+//         infoParaph.textContent = data.message;
+//       }
+//     } catch (error) {
+//       console.error('There was a problem with the fetch operation:', error);
+//     }
+//   });
+// }
 
 if (loginBtn !== null) {
   loginBtn.addEventListener("click", async () => {
@@ -124,7 +178,6 @@ if (recuperarBtn !== null) {
         infoParaph.classList.add('infoError');
       } else {
         infoParaph.classList.remove('infoError');
-        emailField.value = '';
       }
       if (data.redirectUrl) {
         localStorage.setItem("currentSessionEmail", emailField.value);
@@ -155,6 +208,8 @@ if (validaCodeBtn !== null) {
         infoParaph.classList.remove('infoError');
       }
       if (data.redirectUrl) {
+        localStorage.removeItem("currentSessionEmail");
+        localStorage.setItem("_",data.userId);
         window.location.href = data.redirectUrl;
       }
     } catch (error) {
@@ -172,10 +227,17 @@ if (validaCodeBtn !== null) {
 if (passwordConfirm !== null) {
   passwordConfirm.addEventListener("input", (el) => {
     if (el.target.value !== "" && el.target.value === senhaField.value) {
-      cadastrarBtn.style.display = 'block';
+      if(cadastrarBtn!==null){
+        cadastrarBtn.style.display = 'block';
+      }else{
+        salvarNovasCredenciasBtn.style.display = 'block';
+      }
     } else {
-      cadastrarBtn.style.display = 'none';
-    }
+      if(cadastrarBtn!==null){
+        cadastrarBtn.style.display = 'none';
+      }else{
+        salvarNovasCredenciasBtn.style.display = 'none';
+      }    }
   });
 }
 

@@ -66,18 +66,17 @@ router.post('/authenticate', async (req, res) => {
     Utilizador.usuarioCorrente=user;
     res.status(200).json({ sucesso: true, redirectUrl: user.ativo?'/dashboard':'/validacao' });
   } else {
+    console.log("Diferentes as senhas");
     return res.status(401).json({ error:true, message: 'Email ou Senha inválida' });
   }
 });
 router.post('/recovervalidation', async (req, res) => {
   const { email,code } = req.body;
   const user = await Utilizador.findOne({ where: { email } });
-  if (user && code==user.codeRecuperacao) {
-    console.log("iguais");
-  // if (user && (await bcrypt.compare(senha, user.senha))) {
-    res.status(200).json({ sucesso: true, redirectUrl: '/novascredenciais' });
+  if (user && (await bcrypt.compare(code, user.codeRecuperacao))) {
+    res.status(200).json({ sucesso: true, userId:user.id, redirectUrl: '/novascredenciais' });
   } else {
-    return res.status(401).json({ error:true, message: 'Sem Autorização' });
+    return res.status(401).json({ error:true, message: 'Código Inválido' });
   }
 });
 
@@ -92,7 +91,9 @@ router.post('/recover', async (req, res) => {
       code: Math.floor(1000 + Math.random() * 9000),
       assunto:'Recuperação de Conta'
     };
-    user.codeRecuperacao=userData.code;
+    // const hashedCodeRecuperacao=await bcrypt.hash(userData.code,10)
+    const hashedCodeRecuperacao = await bcrypt.hash('' + userData.code, 10);
+    user.codeRecuperacao=hashedCodeRecuperacao;
     await user.save();    
     emailSender(userData,template);
     res.status(200).json({ sucesso: true, message:'Código de Recuperação Enviado com Sucesso',redirectUrl: '/validarrecuperacao'});
@@ -118,7 +119,8 @@ router.post('/confirmacaoconta', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const result = await utilizador.update(req.params.id, req.body);
+  const hashedPassword = await bcrypt.hash(req.body.senha, 10);
+    const result = await utilizador.update(req.params.id, {senha:hashedPassword,codeRecuperacao:null}); 
     if (!result.sucesso) {
       return res.status(404).json({ eror: true, message: result.message });
     }
