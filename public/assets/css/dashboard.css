@@ -5,11 +5,19 @@
     height:100vh;
     background: linear-gradient(white 85%,#6A5ACD);
     background-image: url('../img/africaWonder.jpg');
-    /* background-repeat: no-repeat; */
-    /* background-repeat: repeat-y; */
     background-size: cover;
 }
-
+.defenicoesHeader{
+    margin-top: 1rem;
+    display: flex;
+}
+.defenicoesHeader nav ul li a{
+    text-decoration: none;
+    padding: 0.5rem;
+    background-color: white;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
 .headerContainer{
     display: flex;
     width: 200px;
