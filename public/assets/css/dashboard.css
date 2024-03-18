@@ -488,12 +488,16 @@ justify-content: center;
         /* height: 250px; */
         background-color: rgba(240, 236, 236, 0.635);
         /* border: 0.01px solid rgba(255, 255, 255, 0.957); */
-        /* background:linear-gradient(45deg,whitesmoke, rgba(0, 0, 0, 0.651) 60%,rgba(128, 0, 128, 0.74)); */
         /* opacity: 0.5; */
         border-top-left-radius: 8px;
         border-bottom-right-radius: 8px;
         padding: 0.5rem;
         cursor: pointer;
+        transition: all 2s ease-in-out;
+    }
+    .dashboardContainerItems div:hover,
+    .dashboardContainerItems div:active{
+       background: linear-gradient(55deg,rgba(227, 214, 227, 0.841) 60%, rgba(0, 0, 0, 0.651) 60%,rgba(128, 0, 128, 0.74));
     }
     .mobileDashBoard{
         width: 80%;
