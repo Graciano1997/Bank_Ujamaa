@@ -1,10 +1,12 @@
 const nomeField = document.querySelector("#nome");
 const emailField = document.querySelector("#email");
 const senhaField = document.querySelector("#password");
+const codigoSecretoField = document.querySelector("#codigoSecretoField");
 const loginForm = document.querySelector("#loginForm");
 const recoverForm = document.querySelector("#recoverForm");
 const cadastrarBtn = document.querySelector("#cadastrarBtn");
 const loginBtn = document.querySelector("#loginBtn");
+const quantidadeDinheiro = document.querySelector("#quantidadeDinheiro");
 const passwordConfirm = document.querySelector("#passwordConfirm");
 const infoParaph = document.querySelector(".info");
 const ibanField = document.querySelector("#ibanField");
@@ -12,6 +14,7 @@ const logoutBtn = document.querySelector("#btnSair");
 const logoutBtnNO = document.querySelector("#btnSairNO");
 const logoutBtnYES = document.querySelector("#btnSairYES");
 const chocolateMenu = document.querySelector(".chocolateContainer");
+const mainArea = document.querySelector(".mainArea");
 const validaCountBtn = document.querySelector("#validaCountBtn");
 const validaCodeBtn = document.querySelector("#validaCodeBtn");
 const salvarNovasCredenciasBtn = document.querySelector("#salvarNovasCredenciasBtn");
@@ -20,6 +23,7 @@ const chaveField = document.querySelector("#chaveField");
 const validationForm = document.querySelector("#validationForm");
 const validationCodeForm = document.querySelector("#validationCodeForm");
 const codeInput = document.querySelector("#codeInput");
+const levantamentoFormContainer = document.querySelector("#levantamentoFormContainer");
 
 if (validationForm != null) {
   validationForm.addEventListener("submit", async (el) => {
@@ -30,7 +34,7 @@ if (validationForm != null) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: localStorage.getItem("currentSessionEmail"),
-          code: chaveField.value
+          code: chaveField.value,
         }
         )
       });
@@ -45,6 +49,31 @@ if (validationForm != null) {
     }
   });
 }
+if (levantamentoFormContainer != null) {
+  levantamentoFormContainer.addEventListener("submit", async (el) => {
+    el.preventDefault();
+    try {
+      const response = await fetch('http://localhost:3000/dashboard/levantamento', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          code: codigoSecretoField.value,
+          quantidade:quantidadeDinheiro.value
+        }
+        )
+      });
+      const data = await response.json();
+      console.log("levantamento", data);
+      if (data.redirectUrl) {
+        // window.location.href = data.redirectUrl;
+      }
+
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+    }
+  });
+}
+
 
 if (validationCodeForm != null) {
   validationCodeForm.addEventListener("submit", async (el) => {
@@ -247,6 +276,11 @@ if (chocolateMenu !== null) {
   });
 }
 
+if (mainArea !== null) {
+  mainArea.addEventListener("click", () => {
+    document.querySelector(".sideBarControler").classList.remove('show');
+  });
+}
 // Function to add separators every four digits
 function addSeparators(input) {
   var value = input.value.replace(/\D/g, ''); // Remove non-numeric characters

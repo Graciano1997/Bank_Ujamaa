@@ -12,7 +12,7 @@ const emailSender = async (user,templateToSend) => {
   });
 
   const templateToRender = fs.readFileSync(__dirname + templateToSend , 'utf8');
-  let template = ejs.render(templateToRender, { cliente:{nome: user.nome, code: user.code}});
+  let template = ejs.render(templateToRender, { cliente:{...user}});
   let mailOptions = {
     from: 'bancocomercialujamaa@gmail.com',
     to: user.email,

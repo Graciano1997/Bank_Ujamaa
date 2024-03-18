@@ -91,7 +91,6 @@ router.post('/recover', async (req, res) => {
       code: Math.floor(1000 + Math.random() * 9000),
       assunto:'Recuperação de Conta'
     };
-    // const hashedCodeRecuperacao=await bcrypt.hash(userData.code,10)
     const hashedCodeRecuperacao = await bcrypt.hash('' + userData.code, 10);
     user.codeRecuperacao=hashedCodeRecuperacao;
     await user.save();    
@@ -130,5 +129,6 @@ router.put('/:id', async (req, res) => {
     res.status(500).json({ error: true, message: "Erro no Servidor" });
   }
 });
+
 
 module.exports = router;

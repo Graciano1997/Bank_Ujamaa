@@ -1,15 +1,54 @@
 <%- include('partials/head',{title:'BCU DashBoard'})%>
 <%- include('partials/dashboardHeader')%>
 <section class="dashboardContainer">
-    <div class="mainArea">
+    <div class="mainAreaDashboard">
             <div class="avatarContainer">
                 <div class="avatarDetails">
                     <img src="/assets/img/user.jpg" alt="bank" id="avatarImg">
                 </div>
             </div>
-            <h1>Dasboard</h1>
+            <div class="dashboardContainerItems">
+                <div class="saldoContainer">
+                    <canvas id="myChart"></canvas>
+                    <a href="/dashboard/cartoes">Saldo</a>
+                </div>
+                <div class="levantamentoContainerDash">
+                    <ul>
+                        <li>levantamento</li>
+                        <li>levantamento</li>
+                        <li>levantamento</li>
+                        <li>levantamento</li>
+                    </ul>
+                    <a href="/dashboard/levantamentos">Levantamentos</a>
+                    </div>                
+                <div class="levantamentoContainerDash">
+                    <ul>
+                        <li>levantamento</li>
+                        <li>levantamento</li>
+                        <li>levantamento</li>
+                        <li>levantamento</li>
+                    </ul>
+                    <a href="/dashboard/transferencias">Transferência</a>
+                </div>                                
+            </div>
+            <nav class="mobileDashMenu">
+                <ul>
+                    <li><button id="saldoDashBtn">Saldo</button></li>
+                    <li><button id="transferDashBtn">Transferências</button></li>
+                    <li><button id="levantaDashBtn">Levantamentos</button></li>
+                </ul>
+            </nav>
+            <div class="mobileDashBoard">
+                <div class="saldoContainer">
+                    <canvas id="saldo"></canvas>
+                    <a href="/dashboard/cartoes">Saldo</a>
+                </div>
+            </div>
         </div>
             <%- include('partials/sideBar')%>
     </section>
-    <%- include('partials/footer')%>
+    <script src="/assets/js/Chart.js"></script>
+    <script src="/assets/js/graph.js"></script>
+    <script src="/assets/js/dashboard.js"></script>
+       <%- include('partials/footer')%>
     <%- include('partials/pageEnd')%>
