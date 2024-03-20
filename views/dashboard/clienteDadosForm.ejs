@@ -1,0 +1,50 @@
+<%- include('../partials/head',{title:'BCU Dados Pessoais'})%>
+  <%- include('../partials/dashboardHeader')%>
+    <section class="dashboardUserDadosFormContainer">
+      <!-- <div class="mainAreaDashboard"> -->
+        <form class="dashboardUserDadosForm">
+    <h2>Dados Pessoais</h2>
+    <div class="informacoesPessoais">
+      <input type="text" placeholder="nome completo">
+      <input type="text" placeholder="Nº BI ou Passaporte">
+      <input type="text" placeholder="Morada">
+      <input type="date" placeholder="Data de Nascimento">
+      <select name="sexo">
+        <option value="">Solteiro</option>
+        <option value="">Casado</option>
+      </select>
+      <select name="sexo">
+        <option value="">Masculino</option>
+        <option value="">Femenino</option>
+      </select>
+      <label for="">
+        Foto de Perfil
+        <br>
+        <input type="file" name="foto">  
+      </label>
+    </div>
+    <h2>Dados Academicos</h2>
+    <div class="informacoesPessoais">
+      <select name="sexo">
+        <option value="">Base</option>
+        <option value="">Médio</option>
+        <option value="">Ensino Superior</option>
+        <option value="">Mestre</option>
+      </select>
+    </div>
+    <h2>Documentos</h2>
+    <div class="informacoesPessoais">
+    <input type="file" name="BI">
+    <input type="file" name="BI">
+    </div>
+    <h2>Contactos</h2>
+    <div class="informacoesPessoais">
+    <input type="tel" name="contactos">
+    <input type="tel" name="contactos">
+    </div>
+  </form>
+      <!-- </div> -->
+      <%- include('../partials/sideBar')%>
+    </section>
+    <%- include('../partials/footer')%>
+      <%- include('../partials/pageEnd')%>

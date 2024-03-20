@@ -1,544 +1,609 @@
+.dashboardContainer,
+.dashboardUserDadosFormContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(white 85%, #6A5ACD);
+  background-image: url('../img/africaWonder.jpg');
+  background-size: cover;
+}
 
-.dashboardContainer {
-    display: flex;
-    flex-direction: column;
-    height:100vh;
-    background: linear-gradient(white 85%,#6A5ACD);
-    background-image: url('../img/africaWonder.jpg');
-    background-size: cover;
+.dashboardUserDadosFormContainer {
+  color: white;
 }
-.defenicoesHeader{
-    margin-top: 1rem;
-    display: flex;
+
+.dashboardUserDadosForm {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.defenicoesHeader nav ul li a{
-    text-decoration: none;
-    padding: 0.5rem;
-    background-color: white;
-    border-top-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+
+.dashboardUserDadosForm select {
+  padding: 0.5rem;
 }
-.headerContainer{
-    display: flex;
-    width: 200px;
+
+.informacoesPessoais {
+  display: grid;
+  grid-template-columns: repeat(2, 50fr);
+  gap: 0.5rem;
+  /* grid-template-rows: repeat(3,100fr); */
 }
-.headerContainer h1{
+
+.dashboardUserDadosForm input {
+  padding: 0.5rem;
+}
+
+.defenicoesHeader {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 0.5rem;
+}
+
+.defenicoesHeader nav ul {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.defenicoesHeader nav ul li a {
+  text-decoration: none;
+  padding: 0.5rem;
+  background-color: white;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+/* .headerContainer h1{
     margin:1rem;
-}
+} */
 
-.dashboardContainerHeader{
-    /* position: fixed;
+.dashboardContainerHeader {
+  /* position: fixed;
     top: 0;
     width: 100%; */
-    display: flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 0.2rem 0 0.2rem;
-    color:white;
-    background-color: blueviolet;
-}
-.chocolateContainer{
-    padding:1rem;
-    display: grid;
-    grid-template-columns:repeat(3,9px);
-    grid-template-rows:repeat(3,9px);
-    gap:2px;
-    cursor:pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.2rem 0 0.2rem;
+  color: white;
+  background-color: blueviolet;
 }
 
-.chocolateContainer div{
-    width:6px;
-    height:6px;
-    background-color:white;
-    border-radius:1px;
+.chocolateContainer {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 9px);
+  grid-template-rows: repeat(3, 9px);
+  gap: 2px;
+  cursor: pointer;
 }
+
+.chocolateContainer div {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 1px;
+}
+
 .sideBarContainer {
-    background-color: white;
-    padding: 0.5rem;
-    width: 70%;
-    /* border-radius: 8px; */
-    border-bottom-right-radius: 8px;
+  background-color: white;
+  padding: 0.5rem;
+  width: 70%;
+  /* border-radius: 8px; */
+  border-bottom-right-radius: 8px;
 }
 
 .sideBarContainer nav {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    padding: 0.5rem;
-    transition:all 2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.5rem;
+  transition: all 2s ease-in-out;
 }
 
-.sideBarContainer nav a{
-    text-align:start;
-    display:flex;
-    flex-direction: row-reverse;
-    justify-content:space-between;
-    align-items:center;
-    /* border-radius: 5px; */
-    border-top-left-radius: 8px;
-    border-bottom-right-radius: 8px;    
+.sideBarContainer nav a {
+  text-align: start;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  /* border-radius: 5px; */
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
-.sideBarContainer nav a img{
-    width:10%;
-    height:10%;
+.sideBarContainer nav a img {
+  width: 100%;
+  height: 100%;
 }
 
-.linkButton,
-.linkButtonSair {
-    background-color:blueviolet;
-    padding: 0.5rem;
-    color: white;
-    text-decoration: none;
-    border: transparent;
-    width: 100%;
-    text-align: center;
+.linkButton {
+  /* background-color: red; */
 }
 
 .linkButtonSair {
-    background-color: rgba(61, 14, 105, 0.527);
-    color: white;
+  background-color: blueviolet;
+  padding: 0.5rem;
+  color: white;
+  text-decoration: none;
+  border: transparent;
+  width: 100%;
+  text-align: center;
 }
 
-.sideBarControler{
-    position:absolute;
-    /* width:70%; */
-    width:100%;
-    background:linear-gradient(45deg,rgba(0, 0, 0, 0.651) 60%,rgba(128, 0, 128, 0.74));
-    left: -100%;
-    height:inherit;
-    /* background-color:white; */
-    transition: all 0.3s ease-in-out;
+.linkButtonSair {
+  background-color: rgba(61, 14, 105, 0.527);
+  color: white;
 }
+
+.sideBarControler {
+  position: absolute;
+  /* width:70%; */
+  width: 100%;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.651) 60%, rgba(128, 0, 128, 0.74));
+  left: -100%;
+  height: inherit;
+  /* background-color:white; */
+  transition: all 0.3s ease-in-out;
+}
+
 .sideBarControler.show {
-    left: 0;
-  }
+  left: 0;
+}
 
-.transferenciaContainer{
-    /* margin-top: 5%; */
-    margin: 6% 5% 1rem 5%;
-    padding: 0.5rem;
-    height: 50%;
-    /* border-radius: 8px; */
-    /* width: 100%; */
-    border-top-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+.transferenciaContainer {
+  /* margin-top: 5%; */
+  margin: 6% 5% 1rem 5%;
+  padding: 0.5rem;
+  height: 50%;
+  /* border-radius: 8px; */
+  /* width: 100%; */
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 .transferenciaContainer form {
-    margin-top: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    gap:2rem;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
+
 .transferenciaContainer form input,
-.transferenciaContainer form select{
-    padding: 0.8rem;
-    text-align: left;
-    /* border-radius: 5px; */
-    border: transparent;
-    outline: none;
+.transferenciaContainer form select {
+  padding: 0.8rem;
+  text-align: left;
+  /* border-radius: 5px; */
+  border: transparent;
+  outline: none;
 }
 
-button{
-    border: transparent;
+button {
+  border: transparent;
 }
 
-.mainArea{
-    padding-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    /* width: 100%; */
-    height: inherit;
-    background-color: rgba(0, 0, 0, 0.39);
-    /* background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%); */
+.mainArea {
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+  height: inherit;
+  background-color: rgba(0, 0, 0, 0.39);
+  /* background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%); */
 }
 
-.mainAreaDefinicoes{
-    padding-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    /* width: 100%; */
-    height: inherit;
-    background-color: rgba(0, 0, 0, 0.39);
-    /* background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%); */
+.mainAreaDefinicoes {
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+  height: inherit;
+  background-color: rgba(0, 0, 0, 0.39);
+  /* background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%); */
 }
 
-.mainAreaCard{
-    padding-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* width: 100%; */
-    height: inherit;
-    background-color: rgba(0, 0, 0, 0.39);
-    /* background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%); */
+.mainAreaCard {
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* width: 100%; */
+  height: inherit;
+  background-color: rgba(0, 0, 0, 0.39);
+  /* background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%); */
 }
 
-.mainArea h1{ 
-    padding: 1rem;
-    color:white;
-    font-size: 16px;
+.mainArea h1 {
+  padding: 1rem;
+  color: white;
+  font-size: 16px;
 }
 
 .borderCurveElements input,
-.borderCurveElements select
-{
-    border-top-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+.borderCurveElements select {
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .cartaoContainer {
-    margin: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-    height: 40%;
-    background:linear-gradient(45deg,black,purple);
-    border-radius: 8px;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  height: 40%;
+  background: linear-gradient(45deg, black, purple);
+  border-radius: 8px;
 }
 
-#chip{
-    width: 15%;
-    height: 10%;
-    margin-left: 1.5rem;
-    position: absolute;
-    margin-top: 5rem;
+#chip {
+  width: 15%;
+  height: 10%;
+  margin-left: 1.5rem;
+  position: absolute;
+  margin-top: 5rem;
 }
 
-#bankCardLogo{
-    text-align: right;
-    padding: 0.5rem;
-    color:white;
+#bankCardLogo {
+  text-align: right;
+  padding: 0.5rem;
+  color: white;
 }
 
-.cardDetails{
-    margin-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    color:white;
-    padding: 0.5rem;
-    padding-left: 1rem;
-    text-align: right;
-}
-.saldo{
-padding: 0 0 0 1rem;
-text-align: center;
-    color:white;
-}
-.contactContainer{
-    padding-left: 1rem;
-}
-.contactContainer ul li{
-    padding:1rem;
-    list-style-type: none;
+.cardDetails {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: white;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  text-align: right;
 }
 
-.contactContainer ul li a{
-    text-decoration: none;
-    color:white;
+.saldo {
+  padding: 0 0 0 1rem;
+  text-align: center;
+  color: white;
 }
-.contactContainer ul h4{
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color:white;
-    padding: 0.5rem;
+
+.contactContainer {
+  padding-left: 1rem;
 }
-.contactContainer ul h4 img{
-width: 5%;
-height:5%
+
+.contactContainer ul li {
+  padding: 1rem;
+  list-style-type: none;
+}
+
+.contactContainer ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.contactContainer ul h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  padding: 0.5rem;
+}
+
+.contactContainer ul h4 img {
+  width: 5%;
+  height: 5%
 }
 
 .logoutModal {
-    position: fixed;
-    width: 100%;
-    height:100%;
-    top: 0;
-    background:url('../img/tanzania.jpg');
-    background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: url('../img/tanzania.jpg');
+  background-size: cover;
 }
 
-.modalOut{
-    background-color: rgba(0, 0, 0, 0.622);
-    height: inherit;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-justify-content: center;
-}
-.modalItems{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    color:white;
+.modalOut {
+  background-color: rgba(0, 0, 0, 0.622);
+  height: inherit;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.modalItems h4{
-    position: absolute;
-    bottom: 1%;
-    text-align: center;
-    color:white;
+.modalItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  color: white;
+}
+
+.modalItems h4 {
+  position: absolute;
+  bottom: 1%;
+  text-align: center;
+  color: white;
 }
 
 .transferenciaContainer form button,
-.logoutModal button{
-    padding: 0.8rem;
-    border-radius: 8px;
-    background:linear-gradient(45deg,black,purple);
-    color: white;
+.logoutModal button {
+  padding: 0.8rem;
+  border-radius: 8px;
+  background: linear-gradient(45deg, black, purple);
+  color: white;
 }
-#btnSairNO{
-    background-color: rgba(217, 23, 23, 0.638);
-    }
 
-    .logoutModal button{
-        width: 60%;
-    }
+#btnSairNO {
+  background-color: rgba(217, 23, 23, 0.638);
+}
 
-    .hide{
-        display:none;
-    }
+.logoutModal button {
+  width: 60%;
+}
 
-    .infoValidation{
-        color:white;
-        font-weight: 700;
-    }
+.hide {
+  display: none;
+}
 
-    .avatarContainer{
-        position: absolute;
-        right: 1%;
-        top: 10%;
-        width: 10%;
-        color: white;
-        /* background:linear-gradient(45deg,rgba(0, 0, 0, 0.651) 60%,rgba(128, 0, 128, 0.74)); */
-        border-top-left-radius: 16px;
-        border-bottom-right-radius: 16px;
-        /* height: 20%; */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .avatarDetails{
-        /* height: 5rem; */
-        display: flex;
-        padding: 0.5rem;
-        flex-direction: column;
-        justify-content:center;
-        align-items: center;
-    }
+.infoValidation {
+  color: white;
+  font-weight: 700;
+}
 
-    #avatarImg{
-        width: 100%;
-        height: 100%;
-        padding: 0.4rem;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-    .dashboardContainerItems{
-        display: grid;
-        position: fixed;
-        left: -1000%;
-        margin-top: -6rem;
-        grid-template-columns: 44fr 44fr 44fr;
-        grid-template-rows: 50fr;
-         gap:0.5rem;
-         height: 50%;
-         justify-content: center;
-    }
-    .mainAreaDashboard{
-        /* padding-top: 3rem; */
-        padding:1rem;
-        display: flex;
-        flex-direction: column;
-        height: inherit;
-        background-color: rgba(0, 0, 0, 0.39);
-        justify-content: center;
-        align-items: center;
-    }
-    .mobileDashMenu ul{
-        display: flex;
-        gap: 1rem;
-        justify-content: flex-start;
-        padding: 1rem;
-    }
-    .mobileDashMenu ul li button{
-        padding: 0.5rem;
-        border-top-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        color: white;
-        background:linear-gradient(45deg,rgba(0, 0, 0, 0.651) 60%,rgba(128, 0, 128, 0.74));
+.avatarContainer {
+  position: absolute;
+  right: 1%;
+  top: 10%;
+  width: 10%;
+  color: white;
+  /* background:linear-gradient(45deg,rgba(0, 0, 0, 0.651) 60%,rgba(128, 0, 128, 0.74)); */
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  /* height: 20%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-    }
-    @media screen and (min-width:768px) {
-        .mobileDashMenu{
-            display: none;
-        }
-        .mobileDashBoard{
-            position: fixed;
-            left: -100%;
-        }
-        .mainAreaDashboard{
-            align-items: flex-start
-        }
-        .dashboardContainerItems{
-            position: static;
-            display: grid;
-            grid-template-columns: 44fr 44fr 44fr;
-            height: 250px;
-            gap:2rem;
-            padding-left: 2rem;
-        }
-    
-        .mainArea,
-        .mainAreaCard{
-            display: grid;
-            grid-template-columns: 50fr 50fr ;
-            gap: 0.5rem;
-            height: inherit;
-            background-color: rgba(0, 0, 0, 0.39);
-        }
-        .sideBarControler{
-            width:30%;
-        }
-        .cartaoContainer{
-            align-self: center;
-            width:60%;
-            border-radius: 16px;
-        }
-        .transferenciaContainer
-        {
-            align-self: center;
-            width:80%;
-            border-radius: 16px;
-        }
-        #chip{
-            padding-left: 8px;
-            padding-top: 8px;
-            width: 50px;
-            height: 50px;
-        }
+.avatarDetails {
+  /* height: 5rem; */
+  display: flex;
+  padding: 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-        .logoutModal button{
-            width:30%;
-        }
-    }
+#avatarImg {
+  width: 100%;
+  height: 100%;
+  padding: 0.4rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
 
-    .moneyOptions option{
-        padding: 0.5px;
-        gap: 0.5rem;
-        margin: 0.5rem;
-        cursor: pointer;
-    }
+.dashboardContainerItems {
+  display: grid;
+  position: fixed;
+  left: -1000%;
+  margin-top: -6rem;
+  grid-template-columns: 44fr 44fr 44fr;
+  grid-template-rows: 50fr;
+  gap: 0.5rem;
+  height: 50%;
+  justify-content: center;
+}
 
-    .levantamentos{
-        margin: 0.3rem;
-        /* background-color: rgb(133, 113, 113); */
-        padding: 0.3rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.2rem;
-        overflow-y: scroll;
-    }
-    
-    .levantamentoItem{
-        border-top-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        background: #ffffffa8;
-        color: black;
-        margin: 0.4rem;
-        padding: 0.4rem;
-        display: flex;
-        font-size: 15px;
-        font-weight: 400;
-        align-items: center;
-        border: 2px solid #e0d7d7ea;
-        justify-content: space-between;
-    }
-    .levantamentoAction{
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        justify-content: center;
-        padding: 0.5rem;
-    }
+.mainAreaDashboard {
+  /* padding-top: 3rem; */
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  background-color: rgba(0, 0, 0, 0.39);
+  justify-content: center;
+  align-items: center;
+}
 
-    .levantamentoAction button{
-        padding: 0.5rem;
-        border-radius: 8px;
-    }
+.mobileDashMenu ul {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  padding: 1rem;
+}
 
-    #levantamentoCancelar{
-        background-color: rgba(217, 23, 23, 0.638);
-        color: white;
-    }
+.mobileDashMenu ul li button {
+  padding: 0.5rem;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  color: white;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.651) 60%, rgba(128, 0, 128, 0.74));
 
-    #recuperacao{
-        color: white;
-    }
+}
 
-    .defenicoesHeader ul{
-        display: flex;
-        gap: 1rem;
-        /* background-color: red; */
-    }
-    .defenicoesHeader ul li{
-        list-style: none;
-    }
-    
-      .dashboardContainerItems div,
-      .mobileDashBoard{
-        /* width: 500px; */
-        /* height: 250px; */
-        background-color: rgba(240, 236, 236, 0.635);
-        /* border: 0.01px solid rgba(255, 255, 255, 0.957); */
-        /* opacity: 0.5; */
-        border-top-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        padding: 0.5rem;
-        cursor: pointer;
-        transition: all 2s ease-in-out;
-    }
-    .dashboardContainerItems div:hover,
-    .dashboardContainerItems div:active{
-       background: linear-gradient(55deg,rgba(227, 214, 227, 0.841) 60%, rgba(0, 0, 0, 0.651) 60%,rgba(128, 0, 128, 0.74));
-    }
-    .mobileDashBoard{
-        width: 80%;
-        height: 65%;
-    }
+@media screen and (min-width:768px) {
+  .mobileDashMenu {
+    display: none;
+  }
 
-    .levantamentoContainerDash{
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.5rem;
-    }
-    .levantamentoContainerDash a{
-        text-align: center;
-    }
+  .mobileDashBoard {
+    position: fixed;
+    left: -100%;
+  }
 
-    .saldoContainer{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        }
-        .saldoContainer a{
-            padding-top: 0.5rem;
-        }
+  .mainAreaDashboard {
+    align-items: flex-start
+  }
 
-    .levantamentoContainerDash ul{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 0.5rem;
-    }
-    .levantamentoContainerDash ul li{
-        background-color: #6A5ACD;
-        color: white;
-        padding: 0.5rem;
-    }
+  .dashboardContainerItems {
+    position: static;
+    display: grid;
+    grid-template-columns: 44fr 44fr 44fr;
+    height: 250px;
+    gap: 2rem;
+    padding-left: 2rem;
+  }
+
+  .mainArea,
+  .mainAreaCard {
+    display: grid;
+    grid-template-columns: 50fr 50fr;
+    gap: 0.5rem;
+    height: inherit;
+    background-color: rgba(0, 0, 0, 0.39);
+  }
+
+  .sideBarControler {
+    width: 30%;
+  }
+
+  .cartaoContainer {
+    align-self: center;
+    width: 60%;
+    border-radius: 16px;
+  }
+
+  .transferenciaContainer {
+    align-self: center;
+    width: 80%;
+    border-radius: 16px;
+  }
+
+  #chip {
+    padding-left: 8px;
+    padding-top: 8px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .logoutModal button {
+    width: 30%;
+  }
+}
+
+.moneyOptions option {
+  padding: 0.5px;
+  gap: 0.5rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.levantamentos {
+  margin: 0.3rem;
+  /* background-color: rgb(133, 113, 113); */
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  overflow-y: scroll;
+}
+
+.levantamentoItem {
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background: #ffffffa8;
+  color: black;
+  margin: 0.4rem;
+  padding: 0.4rem;
+  display: flex;
+  font-size: 15px;
+  font-weight: 400;
+  align-items: center;
+  border: 2px solid #e0d7d7ea;
+  justify-content: space-between;
+}
+
+.levantamentoAction {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.levantamentoAction button {
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+#levantamentoCancelar {
+  background-color: rgba(217, 23, 23, 0.638);
+  color: white;
+}
+
+#recuperacao {
+  color: white;
+}
+
+.defenicoesHeader ul {
+  display: flex;
+  gap: 1rem;
+  /* background-color: red; */
+}
+
+.defenicoesHeader ul li {
+  list-style: none;
+}
+
+.dashboardContainerItems div,
+.mobileDashBoard {
+  /* width: 500px; */
+  /* height: 250px; */
+  background-color: rgba(240, 236, 236, 0.635);
+  /* border: 0.01px solid rgba(255, 255, 255, 0.957); */
+  /* opacity: 0.5; */
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 2s ease-in-out;
+}
+
+.dashboardContainerItems div:hover,
+.dashboardContainerItems div:active {
+  background: linear-gradient(55deg, rgba(227, 214, 227, 0.841) 60%, rgba(0, 0, 0, 0.651) 60%, rgba(128, 0, 128, 0.74));
+}
+
+.mobileDashBoard {
+  width: 80%;
+  height: 65%;
+}
+
+.levantamentoContainerDash {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.levantamentoContainerDash a {
+  text-align: center;
+}
+
+.saldoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.saldoContainer a {
+  padding-top: 0.5rem;
+}
+
+.levantamentoContainerDash ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.levantamentoContainerDash ul li {
+  background-color: #6A5ACD;
+  color: white;
+  padding: 0.5rem;
+}

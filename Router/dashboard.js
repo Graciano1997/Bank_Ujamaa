@@ -36,6 +36,15 @@ router.use(express.json());
        resposta.render('warm');
      }
   });
+
+  router.get('/definicoes/dados_pessoais/', (pedido, resposta) => {
+     if (Utilizador.usuarioCorrente != null) {
+      resposta.render('dashboard/clienteDadosForm');
+     }else{
+       resposta.render('warm');
+     }
+  });
+
    router.get('/depositos', async (req, resposta) => {
      if (Utilizador.usuarioCorrente != null) {
        resposta.render('dashboard/deposito');
