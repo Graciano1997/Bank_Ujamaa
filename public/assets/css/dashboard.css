@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: linear-gradient(white 85%, #6A5ACD);
+  /* background: linear-gradient(white 85%, #6A5ACD); */
   background-image: url('../img/africaWonder.jpg');
   background-size: cover;
 }
@@ -63,12 +63,6 @@
   /* position: fixed;
     top: 0;
     width: 100%; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 0.2rem 0 0.2rem;
-  color: white;
-  background-color: blueviolet;
 }
 
 .chocolateContainer {
@@ -191,7 +185,8 @@ button {
   flex-direction: column;
   /* width: 100%; */
   height: inherit;
-  background-color: rgba(0, 0, 0, 0.39);
+  /* background-color: rgba(0, 0, 0, 0.39); */
+  background: rgb(15, 15, 104);
   /* background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0) 100%); */
 }
 

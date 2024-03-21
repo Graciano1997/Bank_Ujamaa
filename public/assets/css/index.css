@@ -1,295 +1,481 @@
 * {
-    padding: 0;
-    margin: 0;
-    list-style:none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-body{
-    display: flex;
-    flex-direction:column;
-    /* background: #fff; */
+body {
+  display: flex;
+  flex-direction: column;
 }
 
-.headerContainer {
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 99%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 1rem 0 1rem;
-    background-color: rgba(0, 0, 0, 0.916);
-  }
+.dashboardContainerHeader {background-color: blueviolet;}
 
-.loginContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 20% 1rem 20% 1rem;
-    background:linear-gradient(45deg, rgb(36, 28, 28),rgb(78, 8, 119));
-    color: white;
-    padding: 1rem;
-    opacity: 0.9;
-    border-top-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(15, 15, 104);
+  color: white;
+  padding: 1rem;
+  opacity: 0.9;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
-@media screen and (min-width:768px) {
-    .loginContainer{
-        align-self: center;
-        justify-self: flex-start;
-        width: 40%;
-        margin: 5% 1rem 20% 1rem;
-    }
+.footerContainer p {
+  color: white;
+  text-align: center;
+  font-size: 12px;
 }
 
-.footerContainer p{
-    color:white;
-    text-align:center;
-    font-size:12px;
+.linkConta {
+  padding-top: 1rem;
+  text-align: center;
 }
 
-
-
-.linkConta{
-    padding-top:1rem;
-    text-align:center;
+.slideWrapper{
+  position: relative;
+  margin: 0 auto;
 }
 
 .slideSection{
-    margin-top: 2rem;
-    height: 400px;
-    border: 1px solid black;
-    border-top-left-radius: 8px;
-    border-bottom-right-radius: 120px;
-}
-.footerContainer{
-    justify-content: center;
-    width: 100%;
-    font-size: 10pt;
-    background-color: rgba(0, 0, 0, 0.916);
-    padding:1rem 0 1rem 0;
-    /* bottom: 5%; */
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    font-family:Ubuntu,system-ui, -apple-system, Roboto, Oxygen, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-top: 6rem;
+  /* height: 5rem; */
 }
 
-.formContainer{
-margin-top:1.5rem;
-padding: 0.5rem;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-gap: 1.5rem;;
-width: 70%;
+.slides {
+  display: flex;
+  aspect-ratio: 16/9;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%,0%,0.25);
+  overflow: hidden;
+  height: 500px;
+  width: 100%;
 }
 
-.formContainer div{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+.slides img{
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  object-fit: fill;  
+  transition: all 1s ease-in-out;
+  width: 100%;
+  height: 100%;
 }
-.formContainer div label{
-    display: none;
+
+.sliderNav{
+  display: flex;
+  column-gap: 2rem;
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  margin: 2rem;
+  padding: 0.5rem;
 }
-.formContainer div input{
-    padding: 0.8rem;
-    border-radius: 8px;
-    outline: none;
-    border: transparent;
-    color: hsl(49, 84%, 12%);
-    width: 100%;
+
+.sliderNav a{
+  width: 3rem;
+  height: 0.2rem;
+  background-color: black;
+  opacity: 0.75;
+  transition: opacity ease 250ms;
 }
-.formContainer button{
-    padding: 0.5rem;
-    border-radius: 8px;
-    outline: none;
-    border: transparent;
-    background-color: hsla(49, 87%, 49%, 0.774);
-    width: 50%;
+.sliderNav a:active{
+  background-color: rgb(253, 38, 38);
+}
+
+.sliderNav a:hover{
+  opacity: 1;
+}
+
+.footerContainer {
+  justify-content: center;
+  width: 100%;
+  font-size: 10pt;
+  background-color: rgba(0, 0, 0, 0.916);
+  padding: 1rem 0 1rem 0;
+  /* bottom: 5%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Ubuntu, system-ui, -apple-system, Roboto, Oxygen, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.formContainer {
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  ;
+  width: 70%;
+}
+
+.formContainer div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formContainer div label {
+  display: none;
+}
+
+.formContainer div input {
+  padding: 0.8rem;
+  border-radius: 8px;
+  outline: none;
+  border: transparent;
+  color: hsl(49, 84%, 12%);
+  width: 100%;
+}
+
+.formContainer button {
+  padding: 0.5rem;
+  border-radius: 8px;
+  outline: none;
+  border: transparent;
+  background-color: hsla(49, 87%, 49%, 0.774);
+  width: 50%;
 }
 
 
 
-.footerContainer h2{
-    cursor: pointer;
-    transition: all 1s ease-in-out;
+.footerContainer h2 {
+  cursor: pointer;
+  transition: all 1s ease-in-out;
 }
 
-.footerContainer h2:hover{
-    color: orange;
+.footerContainer h2:hover {
+  color: orange;
 }
 
-button{
-    cursor: pointer;
-}
-.loginContainer p a{
-    color: orange;
-    text-decoration: none;
+button {
+  cursor: pointer;
 }
 
-#cadastrarBtn{
-display: none;
+.loginContainer p a {
+  color: orange;
+  text-decoration: none;
 }
 
-.infoContainer{
-display: flex;
-justify-content: center;
-padding: 1rem;
-align-items: center;
+#cadastrarBtn {
+  display: none;
 }
 
-.info{
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid rgb(46, 153, 121);
+.infoContainer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  align-items: center;
 }
 
-.infoError{
-    border: 1px solid red;
+.info {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid rgb(46, 153, 121);
 }
 
-.hide{
-    display:none;
+.infoError {
+  border: 1px solid red;
 }
 
-.autorizacao{
-    margin-top: 1rem;
-    text-align: center;
+.hide {
+  display: none;
 }
 
-.linkButtonSair{
-    cursor: pointer;
-}
-/* ::-webkit-scrollbar{
-     background-color: blueviolet;
-     
-    } */
-    
-    ::-webkit-scrollbar-thumb{
-        background:linear-gradient(45deg,white,rgb(78, 8, 119));
-    border-radius: 8px;
-    width: 4px;
+.autorizacao {
+  margin-top: 1rem;
+  text-align: center;
 }
 
-#recuperarCredencias{
-    color: white;
-    text-decoration: none;
+.linkButtonSair {
+  cursor: pointer;
 }
 
-#videoBackground{
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -500;
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, white, rgb(78, 8, 119));
+  border-radius: 8px;
+  width: 4px;
 }
 
-.logo{
-    width: 23%;
-    border-top-left-radius: 16px;
-    border-bottom-right-radius: 16px;
-
+#recuperarCredencias {
+  color: white;
+  text-decoration: none;
 }
 
-.carrocelContainer{
-    margin-top: 7.95rem;
-    height: 150px;
-    padding:1rem;
-    color: white;
-    background: rgb(15, 15, 104);
+.logo {
+  width: 19%;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
-.carrocelNavItems{
-    padding: 0.5rem;
-display: flex;
-justify-content: space-between;    
+.carrocelContainer {
+  display: none;
 }
 
-.carrocelNavItems li h4{
-    font-weight: 700;
-    font-size: 16px;
-    text-transform: uppercase;
+.carrocelNavItems {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-.carrocelNavItems li h4:hover{
-    text-decoration: underline;
+.carrocelNavItems li h4 {
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
-.carrocelNavItemsUl{
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    visibility: hidden;
-    transition: all 1s ease-in-out;
-}
-.carrocelNavItemsUl:hover{
-    visibility: visible;
+.carrocelNavItems li h4:hover {
+  text-decoration: underline;
 }
 
-.carrocelNavItemsUl li{
-    padding: 0.5rem 0 0 0.8rem;
-    transition: all 2s ease-in-out;
+.carrocelNavItemsUl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  visibility: hidden;
+  transition: all 1s ease-in-out;
 }
 
-.carrocelNavItemsUl li a{
-    color: white;
-    padding: 0.3rem;
-    transition: all 1s ease-in-out;
-    text-decoration: none;
+.carrocelNavItemsUl:hover {
+  visibility: visible;
 }
 
-.carrocelNavItemsUl li a:hover{
-    background-color: #120114;
+.carrocelNavItemsUl li {
+  padding: 0.5rem 0 0 0.8rem;
+  transition: all 2s ease-in-out;
 }
 
-/* .carrocelNavItems li h4:hover{
-    display: block;
-} */
-.carrocelNavItems li h4:hover ~ .carrocelNavItemsUl{
-    visibility: visible;
+.carrocelNavItemsUl li a {
+  color: white;
+  padding: 0.3rem;
+  transition: all 1s ease-in-out;
+  text-decoration: none;
 }
 
-.parceirosContainer{
-    padding: 0.5rem;
-    margin-top: 3rem;
-    height: 10rem;
-    display: flex;
-    justify-content: space-around;
-    color:rgba(15, 15, 104, 0.71);
+.menuContainer{
+  color: rgb(15, 15, 104);
+  position: fixed;
+  background:white ;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  left: -100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+}
+.menuContainer nav{
+  margin-top: 10%;
+}
+.footerMenu{
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+}
+.footerMenu h4{
+  text-align: center;
+  color: black;
+  font-weight: bolder;
+  font-size: larger;
+}
+.menuMobileItems{
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 5px;
+}
+.menuMobileItems li ul{
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+}
+.menuMobileItems li ul li{
+  padding: 3px;
+}
+#divisor{
+  background-color:red;
+
+}
+.menuMobileItems li ul li a{
+  text-decoration: none;
+  font-size: 15px;
+  color: rgb(53, 53, 164);
+  transition: all 1s ease-in-out;  
+}
+.menuMobileItems li ul li a:hover,
+.menuMobileItems li ul li a:active{
+  font-weight: bolder;
+  font-size: 17px;
 }
 
-.parceirosContainer h1{
-    text-align: center;
+
+.menuContainer.show {
+  left: 0;
 }
 
-.parceirosContainerHeader{
-    margin-top: 3rem;
-    padding-left: 0.5rem;
+
+.carrocelNavItemsUl li a:hover {
+  background-color: #120114;
 }
 
+.carrocelNavItems li h4:hover~.carrocelNavItemsUl {
+  visibility: visible;
+}
+
+.parceirosContainer {
+  padding: 0.5rem;
+  margin-top: 3rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgba(34, 34, 181, 0.606);
+  background-color: whitesmoke;
+  margin-bottom: 2rem;
+}
+
+.parceirosContainer div {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.parceirosContainer div h1 {
+  font-size: 9pt;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+}
+
+.parceirosContainer div h1:hover {
+  font-size: 12pt;
+  letter-spacing: 8px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.parceirosContainerHeader {
+  margin-top: 1rem;
+  padding-left: 0.5rem;
+}
+
+.dashboardContainerHeader,
+.headerContainer {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 99%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem;
+  background-color: rgba(0, 0, 0, 0.916);
+  height: 5rem;
+  box-shadow: 0 0 5px 0 white;
+  z-index: 3000;
+}
 .linksHeader{
-    margin-right: 1rem;
+  display: none;
 }
-.linksHeader ul {
-    display: flex;
-    gap: 0.5rem;
+#hamburguerHeader{
+  width: 40%;
+  height: 40%;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+}
+#hamburguerHeader:active{
+  opacity: 0.5;
+}
+
+@media screen and (min-width:768px) {
+  .menuContainer{
+    display: none;
+  }
+  .parceirosContainerHeader {
+    margin-top: 10rem;
+  }
+  .slideSection{
+    height: 400px;
   }
   
-  .linksHeader ul li {
-    padding: 0.5rem;
-    /* border: 1px solid white; */
-    border-top-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    background-color: rgb(53, 53, 164);
+  .logo {
+    width: 23%;
   }
-  .linksHeader ul li a {
+  .carrocelContainer {
+    display: block;
+    margin-top: 7.95rem;
+    padding: 1rem;
     color: white;
-    text-decoration: none;
+    background: rgb(15, 15, 104);
   }
+  #hamburguerHeader{
+    display: none;
+  }
+.linksHeader {
+  display: block;
+  margin-right: 1rem;
+}
+
+.linksHeader ul {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.linksHeader ul li {
+  padding: 0.5rem;
+  border-top-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: rgb(53, 53, 164);
+}
+
+.linksHeader ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+  .loginContainer {
+    align-self: center;
+    justify-self: flex-start;
+    width: 40%;
+    margin: 5% 1rem 20% 1rem;
+  }
+  .parceirosContainer div {
+    justify-content: space-around;
+  }
+  .headerContainer,
+  .dashboardContainerHeader {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 99%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 0 1rem;
+  background-color: rgba(0, 0, 0, 0.916);
+  z-index: 2000;
+  height: 18.5%;
+  box-shadow: 0 0 5px 0 white;
+}
+.parceirosContainer div h1 {
+  font-size: 20pt;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+}
+.parceirosContainer div h1:hover {
+  font-size: xx-large;
+  color: #120114;
+}
+}
