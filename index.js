@@ -35,6 +35,52 @@ app.get('/login', (pedido, resposta) => {
 app.get('/cadastrar', (pedido, resposta) => {
     resposta.render('cadastrar');
 });
+
+//Serviços
+app.get('/seguros', (pedido, resposta) => {
+    resposta.render('servicos/seguros');
+});
+app.get('/abertura_conta', (pedido, resposta) => {
+    resposta.render('servicos/aberturaConta');
+});
+app.get('/faturas_genericas', (pedido, resposta) => {
+    resposta.render('servicos/faturaGenerica');
+});
+app.get('/internet_banking', (pedido, resposta) => {
+    resposta.render('servicos/internetBanking');
+});
+//Fim serviços
+
+//Apoio ao Cliente
+app.get('/perguntas_frequentes', (pedido, resposta) => {
+    resposta.render('apoioCliente/perguntasFrequentes');
+});
+app.get('/apoio_ao_cliente', (pedido, resposta) => {
+    resposta.render('apoioCliente/contatos');
+});
+//Fim Apoio
+
+//Produtos
+app.get('/cartoes', (pedido, resposta) => {
+    resposta.render('produtos/cartoes');
+});
+app.get('/creditos', (pedido, resposta) => {
+    resposta.render('produtos/creditos');
+});
+app.get('/contas', (pedido, resposta) => {
+    resposta.render('produtos/contas');
+});
+app.get('/levantamentos', (pedido, resposta) => {
+    resposta.render('produtos/levantamento');
+});
+//Fim Produtos
+app.get('/instituicional', (pedido, resposta) => {
+    resposta.render('instituicao');
+});
+app.get('/empresas', (pedido, resposta) => {
+    resposta.render('empresas');
+});
+
 app.get('/recuperacao', (pedido, resposta) => {
     resposta.render('recuperacao');
 });
