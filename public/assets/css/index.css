@@ -9,8 +9,6 @@ body {
   flex-direction: column;
 }
 
-.dashboardContainerHeader {background-color: blueviolet;}
-
 .loginContainer {
   display: flex;
   flex-direction: column;
@@ -213,6 +211,7 @@ button {
   color: white;
   text-decoration: none;
 }
+
 
 .logo {
   width: 19%;

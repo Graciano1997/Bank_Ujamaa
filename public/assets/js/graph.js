@@ -13,7 +13,7 @@ new Chart(ctx, {
       data: [+300, -100],
       color: 'white',
       backgroundColor: [
-        'blueviolet',
+        'rgb(61, 61, 252)',
         'rgba(28, 33, 30, 0.842)'
       ],
       borderColor: 'rgba(0, 0, 0, 0.489)',

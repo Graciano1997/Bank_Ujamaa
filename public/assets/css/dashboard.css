@@ -82,65 +82,66 @@
 }
 
 .sideBarContainer {
-  background-color: white;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   width: 70%;
   /* border-radius: 8px; */
   border-bottom-right-radius: 8px;
+  z-index: 7000;
+  /* height: inherit; */
 }
 
 .sideBarContainer nav {
+  margin-top: 30%;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  align-items: center;
-  padding: 0.5rem;
-  transition: all 2s ease-in-out;
+  width: 100%;
+  padding-left: 0.5rem;
+  transition: all 2s ease-in-out;  
 }
 
 .sideBarContainer nav a {
-  text-align: start;
+  /* text-align: start; */
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
+  color: white;
+  text-decoration: none;
   /* border-radius: 5px; */
-  border-top-left-radius: 8px;
-  border-bottom-right-radius: 8px;
 }
 
 .sideBarContainer nav a img {
-  width: 100%;
-  height: 100%;
+  width: 10%;
+  height: 10%;
 }
 
-.linkButton {
-  /* background-color: red; */
+/* .linkButton {
+  background-color:red;
+} */
+.linkButton:active {
+  background-color:transparent;
 }
 
 .linkButtonSair {
-  background-color: blueviolet;
+  background-color: black;
   padding: 0.5rem;
   color: white;
   text-decoration: none;
   border: transparent;
   width: 100%;
   text-align: center;
-}
-
-.linkButtonSair {
-  background-color: rgba(61, 14, 105, 0.527);
-  color: white;
+  border-radius: 8px;
 }
 
 .sideBarControler {
   position: absolute;
-  /* width:70%; */
+  color: white;
   width: 100%;
-  background: linear-gradient(45deg, rgba(0, 0, 0, 0.651) 60%, rgba(128, 0, 128, 0.74));
+  background: rgba(34, 34, 149, 0.642);
+  /* background: linear-gradient(45deg, rgba(0, 0, 0, 0.651) 60%, rgba(128, 0, 128, 0.74)); */
   left: -100%;
-  height: inherit;
-  /* background-color:white; */
+  height: 100vh;
   transition: all 0.3s ease-in-out;
 }
 
@@ -365,19 +366,35 @@ button {
   justify-content: center;
 }
 
-.avatarDetails {
+.logoContainer{
+  display: flex;
+  flex-direction: column;
+  max-height: 150px;
+  max-width: 150px;
+}
+.logoContainer img{
+  width: 50%;
+  height: 50%;
+  cursor: pointer;
+}
+
+.avatarDetails{
   /* height: 5rem; */
   display: flex;
   padding: 0.5rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* height: 210px;
+  width: 210px; */
+  max-height: 150px;
+  max-width: 150px;
 }
 
+
 #avatarImg {
-  width: 100%;
-  height: 100%;
-  padding: 0.4rem;
+  width: 50%;
+  height: 50%;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -468,7 +485,10 @@ button {
     width: 80%;
     border-radius: 16px;
   }
-
+  .sideBarContainer nav {
+    margin-top: 60%;
+    gap: 1.5rem;
+     }
   #chip {
     padding-left: 8px;
     padding-top: 8px;
@@ -560,8 +580,9 @@ button {
 }
 
 .dashboardContainerItems div:hover,
-.dashboardContainerItems div:active {
-  background: linear-gradient(55deg, rgba(227, 214, 227, 0.841) 60%, rgba(0, 0, 0, 0.651) 60%, rgba(128, 0, 128, 0.74));
+.dashboardContainerItems div:active,
+.mobileDashBoard:hover{
+  box-shadow: 0 1.5rem 3rem -0.75rem hsla(208, 88%, 53%, 0.25);
 }
 
 .mobileDashBoard {
