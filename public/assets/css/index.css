@@ -404,6 +404,10 @@ button {
 {
   margin:8rem 0 0 1rem;
 }
+.headerContainer,
+.dashboardContainerHeader {
+box-shadow: 0 0 15px 0 blue;
+}
 
 @media screen and (min-width:768px) {
   .mainHomeContainer{
