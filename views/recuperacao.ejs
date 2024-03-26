@@ -1,6 +1,7 @@
 
 <%- include('partials/head',{title:'BCU Login'})%>
 <%- include('partials/header')%>
+<div class="container">
 <section class="loginContainer">
         <form class="formContainer" id="recuperacaoForm">
             <div>
@@ -9,10 +10,12 @@
             </div>
             <button type="button" id="recuperarBtn">Recuperar</button>
         </form>
+        <br>
+        <p class="linkConta">Não tem Conta ? <br/><a href="/cadastrar">Cadastrar</a></p>
         <div class="infoContainer">
             <p class="info"></p>
         </div>   
     </section>
-
+</div>
     <%- include('partials/footer')%>
 <%- include('partials/pageEnd')%>

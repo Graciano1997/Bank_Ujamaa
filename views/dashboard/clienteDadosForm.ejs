@@ -1,49 +1,49 @@
 <%- include('../partials/head',{title:'BCU Dados Pessoais'})%>
   <%- include('../partials/dashboardHeader')%>
     <section class="dashboardUserDadosFormContainer">
-      <!-- <div class="mainAreaDashboard"> -->
-        <form class="dashboardUserDadosForm">
-    <h2>Dados Pessoais</h2>
-    <div class="informacoesPessoais">
-      <input type="text" placeholder="nome completo">
-      <input type="text" placeholder="Nº BI ou Passaporte">
-      <input type="text" placeholder="Morada">
-      <input type="date" placeholder="Data de Nascimento">
-      <select name="sexo">
-        <option value="">Solteiro</option>
-        <option value="">Casado</option>
-      </select>
-      <select name="sexo">
-        <option value="">Masculino</option>
-        <option value="">Femenino</option>
-      </select>
-      <label for="">
-        Foto de Perfil
-        <br>
-        <input type="file" name="foto">  
-      </label>
-    </div>
-    <h2>Dados Academicos</h2>
-    <div class="informacoesPessoais">
-      <select name="sexo">
-        <option value="">Base</option>
-        <option value="">Médio</option>
-        <option value="">Ensino Superior</option>
-        <option value="">Mestre</option>
-      </select>
-    </div>
-    <h2>Documentos</h2>
-    <div class="informacoesPessoais">
-    <input type="file" name="BI">
-    <input type="file" name="BI">
-    </div>
-    <h2>Contactos</h2>
-    <div class="informacoesPessoais">
-    <input type="tel" name="contactos">
-    <input type="tel" name="contactos">
-    </div>
-  </form>
-      <!-- </div> -->
+      <form class="dashboardUserDadosForm borderCurveElements">
+        <div class="informacoesPessoais">
+          <label for="nomeCompleto">Nome Completo</label>
+          <input type="text"  id="nomeCompleto">
+          <label for="bilhete">Bilhete</label>
+          <input type="text" id="bilhete">
+          <label for="nascimento">Data de Nascimento</label>
+          <input type="date" id="nascimento">
+          <label for="estadoCivil">Estado Civil</label>
+          <select name="estado" id="estadoCivil">
+            <option value="">Solteiro</option>
+            <option value="">Casado</option>
+            <option value="">Viuvo(a)</option>
+          </select>
+          <label for="sexo"></label>
+          <select name="sexo" id="sexo">
+            <option value="">Masculino</option>
+            <option value="">Femenino</option>
+          </select>
+        </div>
+
+        <div class="informacoesAcademicas">
+          <label for="nivelAcademico">Nível Academico</label>
+          <select name="nivelAcademico" id="nivelAcademico">
+            <option value="base">Base</option>
+            <option value="médio">Médio</option>
+            <option value="licenciado">Ensino Superior</option>
+            <option value="mestre">Mestre</option>
+            <option value="doctor">Doctor</option>
+          </select>
+          <label for="tel1">Contacto Principal</label>
+          <input type="tel" name="contactos" id="tel1">
+          <label for="tel2">Contacto Secundário</label>
+          <input type="tel" name="contactos" id="tel2">
+          <label for="fotoPerfil">
+            Foto de Perfil
+          </label>
+          <input type="file" name="foto" id="fotoPerfil">
+          <label for="bilheteFile">Carregar o Bilhete</label>
+          <input type="file" name="BI" id="bilheteFile">
+          <button class="btnSalvarDados">Salvar</button>
+        </div>
+      </form>
       <%- include('../partials/sideBar')%>
     </section>
     <%- include('../partials/footer')%>

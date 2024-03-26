@@ -22,27 +22,27 @@ router.use(express.json());
     //  }
   });
   router.get('/definicoes', (pedido, resposta) => {
-     if (Utilizador.usuarioCorrente != null) {
+    //  if (Utilizador.usuarioCorrente != null) {
       resposta.render('dashboard/definicoes');
-     }else{
-       resposta.render('warm');
-     }
+    //  }else{
+      //  resposta.render('warm');
+    //  }
   });
 
-  router.get('/definicoes/', (pedido, resposta) => {
-     if (Utilizador.usuarioCorrente != null) {
-      resposta.render('dashboard/definicoes');
-     }else{
-       resposta.render('warm');
-     }
-  });
+  // router.get('/definicoes/', (pedido, resposta) => {
+  //    if (Utilizador.usuarioCorrente != null) {
+  //     resposta.render('dashboard/definicoes');
+  //    }else{
+  //      resposta.render('warm');
+  //    }
+  // });
 
   router.get('/definicoes/dados_pessoais/', (pedido, resposta) => {
-     if (Utilizador.usuarioCorrente != null) {
+    //  if (Utilizador.usuarioCorrente != null) {
       resposta.render('dashboard/clienteDadosForm');
-     }else{
-       resposta.render('warm');
-     }
+    //  }else{
+    //    resposta.render('warm');
+    //  }
   });
 
    router.get('/depositos', async (req, resposta) => {

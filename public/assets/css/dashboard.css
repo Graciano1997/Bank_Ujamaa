@@ -2,32 +2,36 @@
 .dashboardUserDadosFormContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   height: 100vh;
   /* background: linear-gradient(white 85%, #6A5ACD); */
   background-image: url('../img/africaWonder.jpg');
   background-size: cover;
 }
 
-.dashboardUserDadosFormContainer {
-  color: white;
-}
-
 .dashboardUserDadosForm {
-  padding: 0.5rem;
+  margin: 3rem 2rem 0 2rem;
+  background: rgba(15, 15, 104, 0.425);
+  color: white;
+  border-top-left-radius: 16px;
+  border-bottom-right-radius: 16px;
   display: flex;
+  height: 400px;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.3rem; 
+  padding: 0.3rem;
+  overflow-y: scroll;
 }
 
 .dashboardUserDadosForm select {
   padding: 0.5rem;
 }
 
-.informacoesPessoais {
-  display: grid;
-  grid-template-columns: repeat(2, 50fr);
-  gap: 0.5rem;
-  /* grid-template-rows: repeat(3,100fr); */
+.informacoesPessoais,
+.informacoesAcademicas{
+   display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 .dashboardUserDadosForm input {
@@ -55,31 +59,38 @@
   border-bottom-right-radius: 8px;
 }
 
-/* .headerContainer h1{
-    margin:1rem;
-} */
-
-.dashboardContainerHeader {
-  /* position: fixed;
-    top: 0;
-    width: 100%; */
-}
-
 .chocolateContainer {
   padding: 1rem;
   display: grid;
   grid-template-columns: repeat(3, 9px);
   grid-template-rows: repeat(3, 9px);
   gap: 2px;
+  border-radius: 16px;
   cursor: pointer;
+  transition: all 1s ease-in-out;
 }
-
+.chocolateContainer:hover {
+  display: grid;
+  grid-template-columns: repeat(3, 9px);
+  grid-template-rows: repeat(3, 9px);
+  gap: 2px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px rgb(237, 237, 209) inset;
+}
 .chocolateContainer div {
   width: 6px;
   height: 6px;
   background-color: white;
   border-radius: 1px;
+  transition: all 1s ease-in-out;
 }
+
+.chocolateContainer div:hover{
+background-color: rgb(34, 243, 254);
+width: 8px;
+height: 8px;
+}
+
 
 .sideBarContainer {
   /* padding: 0.5rem; */
@@ -105,10 +116,15 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  /* align-items: center; */
+  align-items: center;
   color: white;
+  padding: 2px;
+  border-radius: 8px;
   text-decoration: none;
-  /* border-radius: 5px; */
+  transition: all 2s ease-in-out;
+}
+.sideBarContainer nav a:hover{
+  border: 0.3px solid white;
 }
 
 .sideBarContainer nav a img {
@@ -192,6 +208,7 @@ button {
 }
 
 .mainAreaDefinicoes {
+  margin-top: 5rem;
   padding-top: 3rem;
   display: flex;
   flex-direction: column;
@@ -230,7 +247,7 @@ button {
   flex-direction: column;
   justify-self: center;
   height: 40%;
-  background: linear-gradient(45deg, black, purple);
+  background: linear-gradient(60deg, black, rgb(34, 34, 149));
   border-radius: 8px;
 }
 
@@ -297,12 +314,13 @@ button {
   width: 100%;
   height: 100%;
   top: 0;
-  background: url('../img/tanzania.jpg');
-  background-size: cover;
+  /* background: url('../img/tanzania.jpg'); */
+  background: blue;
+  /* background-size: cover; */
 }
 
 .modalOut {
-  background-color: rgba(0, 0, 0, 0.622);
+  background: rgb(34, 34, 149);
   height: inherit;
   overflow: hidden;
   display: flex;
@@ -327,15 +345,19 @@ button {
 }
 
 .transferenciaContainer form button,
-.logoutModal button {
+.logoutModal button,
+.btnSalvarDados {
   padding: 0.8rem;
   border-radius: 8px;
-  background: linear-gradient(45deg, black, purple);
   color: white;
+  /* background: linear-gradient(45deg, black, purple); */
+  background: blue;
+  
 }
 
 #btnSairNO {
-  background-color: rgba(217, 23, 23, 0.638);
+  background-color: black;
+  color: white;
 }
 
 .logoutModal button {
@@ -376,27 +398,34 @@ button {
   width: 50%;
   height: 50%;
   cursor: pointer;
+  transition: all 2s ease-in-out;
+}
+.logoContainer img:hover{
+  transform: scale(1.2);
+  box-shadow: 0 5px 5px 0 white;
 }
 
 .avatarDetails{
-  /* height: 5rem; */
   display: flex;
   padding: 0.5rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 210px;
-  width: 210px; */
   max-height: 150px;
   max-width: 150px;
 }
-
 
 #avatarImg {
   width: 50%;
   height: 50%;
   border-radius: 50%;
   cursor: pointer;
+  transition: all 1s ease-in-out;
+}
+
+#avatarImg:hover{
+transform: scale(1.1);
+box-shadow: 2px 2px 2px 2px white;
 }
 
 .dashboardContainerItems {
@@ -439,6 +468,13 @@ button {
 }
 
 @media screen and (min-width:768px) {
+  .dashboardUserDadosForm {
+    display: grid;
+    grid-template-columns: repeat(2, 50fr);
+    gap: 0.5rem; 
+    padding: 0.5rem;
+    overflow-y: hidden;
+  }
   .mobileDashMenu {
     display: none;
   }

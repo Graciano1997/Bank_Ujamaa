@@ -1,5 +1,6 @@
  const hamburguerHeaderBTN = document.querySelector("#hamburguerHeader");
  const logo = document.querySelector(".logo");
+ const logoImage = document.querySelector(".logoImage");
  
  if (hamburguerHeaderBTN !== null) {
      hamburguerHeaderBTN.addEventListener("click", () => {
@@ -14,5 +15,10 @@
  if (logo !== null) {
      logo.addEventListener("click", () => {
         window.location.href="/dashboard";
+     });
+ }
+ if (logoImage !== null) {
+     logoImage.addEventListener("click", () => {
+        window.location.href="/";
      });
  }

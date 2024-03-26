@@ -37,9 +37,7 @@ app.get('/cadastrar', (pedido, resposta) => {
 });
 
 //Serviços
-app.get('/seguros', (pedido, resposta) => {
-    resposta.render('servicos/seguros');
-});
+
 app.get('/abertura_conta', (pedido, resposta) => {
     resposta.render('servicos/aberturaConta');
 });
@@ -70,8 +68,8 @@ app.get('/creditos', (pedido, resposta) => {
 app.get('/contas', (pedido, resposta) => {
     resposta.render('produtos/contas');
 });
-app.get('/levantamentos', (pedido, resposta) => {
-    resposta.render('produtos/levantamento');
+app.get('/seguros', (pedido, resposta) => {
+    resposta.render('produtos/seguros');
 });
 //Fim Produtos
 app.get('/instituicional', (pedido, resposta) => {
