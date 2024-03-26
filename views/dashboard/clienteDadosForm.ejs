@@ -7,21 +7,26 @@
           <input type="text"  id="nomeCompleto">
           <label for="bilhete">Bilhete</label>
           <input type="text" id="bilhete">
-          <label for="nascimento">Data de Nascimento</label>
-          <input type="date" id="nascimento">
-          <label for="estadoCivil">Estado Civil</label>
-          <select name="estado" id="estadoCivil">
-            <option value="">Solteiro</option>
-            <option value="">Casado</option>
-            <option value="">Viuvo(a)</option>
-          </select>
-          <label for="sexo"></label>
+          <div class="contactosContainer">
+            <div>
+              <label for="estadoCivil">Estado Civil</label>
+              <select name="estado" id="estadoCivil">
+                <option value="">Solteiro</option>
+                <option value="">Casado</option>
+                <option value="">Viuvo(a)</option>
+              </select>
+            </div>
+        <div>
+          <label for="sexo">Sexo</label>
           <select name="sexo" id="sexo">
             <option value="">Masculino</option>
             <option value="">Femenino</option>
           </select>
         </div>
-
+        </div>
+        <label for="nascimento">Data de Nascimento</label>
+        <input type="date" id="nascimento">
+      </div>
         <div class="informacoesAcademicas">
           <label for="nivelAcademico">Nível Academico</label>
           <select name="nivelAcademico" id="nivelAcademico">
@@ -31,18 +36,32 @@
             <option value="mestre">Mestre</option>
             <option value="doctor">Doctor</option>
           </select>
-          <label for="tel1">Contacto Principal</label>
-          <input type="tel" name="contactos" id="tel1">
-          <label for="tel2">Contacto Secundário</label>
-          <input type="tel" name="contactos" id="tel2">
-          <label for="fotoPerfil">
-            Foto de Perfil
-          </label>
-          <input type="file" name="foto" id="fotoPerfil">
-          <label for="bilheteFile">Carregar o Bilhete</label>
-          <input type="file" name="BI" id="bilheteFile">
-          <button class="btnSalvarDados">Salvar</button>
+          <label for="morada">Morada</label>
+          <input type="text" id="morada">
+          <div class="contactosContainer">
+           <div>
+             <label for="tel1">Telefone Principal</label>
+             <input type="tel" name="contactos" id="tel1">
+           </div>
+           <div>
+             <label for="tel2">Telefone Secundário</label>
+             <input type="tel" name="contactos" id="tel2">
+           </div>
+          </div>
+          <div class="contactosContainer">
+            <div>
+              <label for="fotoPerfil">
+                Foto de Perfil
+            </label>
+            <input type="file" name="foto" id="fotoPerfil">
+            </div>
+            <div>
+              <label for="bilheteFile">Carregar o Bilhete</label>
+              <input type="file" name="BI" id="bilheteFile">
+            </div>
         </div>
+      </div>
+      <button class="btnSalvarDados">Salvar</button>
       </form>
       <%- include('../partials/sideBar')%>
     </section>

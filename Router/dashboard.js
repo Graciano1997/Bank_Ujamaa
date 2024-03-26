@@ -45,6 +45,22 @@ router.use(express.json());
     //  }
   });
 
+  router.get('/definicoes/seguranca/', (pedido, resposta) => {
+    //  if (Utilizador.usuarioCorrente != null) {
+      resposta.render('dashboard/clienteSeguranca');
+    //  }else{
+    //    resposta.render('warm');
+    //  }
+  });
+  
+  router.get('/definicoes/email/', (pedido, resposta) => {
+    //  if (Utilizador.usuarioCorrente != null) {
+      resposta.render('dashboard/clienteSetEmail');
+    //  }else{
+    //    resposta.render('warm');
+    //  }
+  });
+
    router.get('/depositos', async (req, resposta) => {
      if (Utilizador.usuarioCorrente != null) {
        resposta.render('dashboard/deposito');
@@ -107,6 +123,7 @@ router.use(express.json());
        resposta.render('warm');
      }
   });
+
   router.get('/logout', async (req, resposta) => {
     Utilizador.usuarioCorrente=null;
     resposta.redirect('/login');

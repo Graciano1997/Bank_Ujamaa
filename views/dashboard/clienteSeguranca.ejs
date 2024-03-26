@@ -1,0 +1,27 @@
+<%- include('../partials/head',{title:'BCU Dados Pessoais'})%>
+  <%- include('../partials/dashboardHeader')%>
+          <%- include('../partials/sideBar')%>
+          <div class="container">
+            <section class="loginContainer">
+                <form class="formContainer" id="recoverForm">
+                    <div>
+                        <label for="password">Senha Actual</label>
+                        <input type="password" name="senha" id="password" minlength="4" maxlength="16" placeholder="Sua Senha Atual" required>
+                    </div>
+                    <div>
+                        <label for="password">Nova Senha</label>
+                        <input type="password" name="senha" id="password" minlength="4" maxlength="16" placeholder="Nova Senha" required>
+                    </div>
+                    <div>
+                        <label for="password">Confirmar nova Senha</label>
+                        <input type="password" name="senha-confirma" id="passwordConfirm" minlength="4" maxlength="16" placeholder="Repetir NovaSenha" required>
+                    </div>
+                    <button type="submit" id="salvarNovasCredenciasBtn">Salvar</button>
+                </form>
+                <div class="infoContainer">
+                    <p class="info"></p>
+                </div>   
+            </section>
+        </div>
+    <%- include('../partials/footer')%>
+      <%- include('../partials/pageEnd')%>

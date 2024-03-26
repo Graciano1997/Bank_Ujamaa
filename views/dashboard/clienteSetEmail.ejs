@@ -1,0 +1,27 @@
+<%- include('../partials/head',{title:'BCU Definir Email'})%>
+  <%- include('../partials/dashboardHeader')%>
+          <%- include('../partials/sideBar')%>
+          <div class="container">
+            <section class="loginContainer">
+                <form class="formContainer" id="recoverForm">
+                    <div>
+                        <label for="password">Email Actual</label>
+                        <input type="email" name="email" id="password" minlength="4" maxlength="16" placeholder="Seu Email atual" required>
+                    </div>
+                    <div>
+                        <label for="password">Novo Email</label>
+                        <input type="password" name="senha" id="password" minlength="4" maxlength="16" placeholder="Novo Email" required>
+                    </div>
+                    <div>
+                        <label for="password">Novo Email</label>
+                        <input type="password" name="senha-confirma" id="passwordConfirm" minlength="4" maxlength="16" placeholder="Repetir Email" required>
+                    </div>
+                    <button type="submit" id="salvarNovasCredenciasBtn">Salvar</button>
+                </form>
+                <div class="infoContainer">
+                    <p class="info"></p>
+                </div>   
+            </section>
+        </div>
+    <%- include('../partials/footer')%>
+      <%- include('../partials/pageEnd')%>
